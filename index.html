@@ -1,201 +1,410 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Francisco Taylan Santos de Lima — Odontologia</title>
-  <meta name="description" content="Perfil profissional de Francisco Taylan — estudante de Odontologia, projetos, publicações e contato." />
-  <style>
-    :root{
-      --bg:#FBFBFB;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#0f172a;
-      --glass: rgba(15,23,42,0.04);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,var(--bg),#f6f7f9);
-      color:var(--accent);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:32px;
-      display:flex;
-      justify-content:center;
-      font-size:16px;
-    }
-    .container{
-      width:100%;
-      max-width:980px;
-      background:var(--card);
-      border-radius:14px;
-      box-shadow:0 8px 30px rgba(20,25,30,0.06);
-      padding:36px;
-      display:grid;
-      grid-template-columns:1fr 340px;
-      gap:28px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Taylan Santos de Lima | Acadêmico de Odontologia</title>
+    <meta name="description" content="Portfólio acadêmico e profissional de Francisco Taylan Santos de Lima, discente de Odontologia da UFC Sobral.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    header{
-      grid-column:1 / -1;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      margin-bottom:6px;
-    }
-    .profile {
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-    .avatar{
-      width:88px;
-      height:88px;
-      border-radius:12px;
-      background:linear-gradient(135deg,#e6eefc,#f7fff9);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      font-size:22px;
-      color:#0f172a;
-      box-shadow:0 6px 18px rgba(10,15,25,0.04);
-    }
-    h1{font-size:20px;margin:0}
-    p.lead{margin:2px 0 0;color:var(--muted);font-size:14px}
-
-    /* main content */
-    .summary{padding:20px;background:var(--glass);border-radius:10px}
-    .section{margin-bottom:20px}
-    .section h2{
-      font-size:15px;margin:0 0 10px 0;
-      letter-spacing:0.2px;
-    }
-    ul.clean{list-style:none;padding:0;margin:0}
-    ul.clean li{padding:6px 0;border-bottom:1px dashed rgba(15,23,42,0.04);font-size:14px;color:#111827}
-    .muted{color:var(--muted);font-size:13px}
-    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid rgba(15,23,42,0.04);font-size:13px;margin:6px 6px 0 0}
-
-    /* sidebar */
-    aside{
-      padding:20px;background:linear-gradient(180deg,#fff,#fbfdff);
-      border-radius:10px;height:fit-content;
-      border:1px solid rgba(15,23,42,0.03);
-    }
-    .contact a{display:block;color:var(--accent);text-decoration:none;margin-bottom:6px;font-weight:600}
-    .small{font-size:13px;color:var(--muted)}
-    .btn{
-      display:inline-block;padding:10px 14px;border-radius:10px;background:#08132b;color:#fff;text-decoration:none;font-weight:600;margin-top:12px;
-      box-shadow:0 6px 18px rgba(8,19,43,0.12)
-    }
-
-    footer{grid-column:1 / -1;margin-top:6px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-
-    /* responsive */
-    @media(max-width:880px){
-      .container{grid-template-columns:1fr; padding:20px}
-      aside{order:3;margin-top:6px}
-    }
-  </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0e7490', // Cyan-700
+                        secondary: '#155e75', // Cyan-800
+                        light: '#f8fafc',
+                        dark: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <main class="container" role="main" aria-labelledby="hero">
-    <header id="hero">
-      <div class="profile">
-        <div class="avatar" aria-hidden="true">FT</div>
-        <div>
-          <h1>Francisco Taylan Santos de Lima</h1>
-          <p class="lead">Estudante de Odontologia — Universidade Federal do Ceará (Campus Sobral)</p>
-          <p class="muted">Última atualização do currículo: 21/11/2025</p>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary tracking-tight">F. Taylan Lima</a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
+                <a href="#formacao" class="hover:text-primary transition-colors">Formação</a>
+                <a href="#projetos" class="hover:text-primary transition-colors">Extensão</a>
+                <a href="#publicacoes" class="hover:text-primary transition-colors">Publicações</a>
+                <a href="#contato" class="hover:text-primary transition-colors">Contato</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </div>
-      </div>
-      <div style="text-align:right">
-        <a href="#contato" class="btn" aria-label="Entrar em contato">Contato / CV</a>
-        <div class="small" style="margin-top:8px">ID Lattes: 2224107126204328</div>
-      </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#sobre" class="text-gray-600 hover:text-primary">Sobre</a>
+                <a href="#formacao" class="text-gray-600 hover:text-primary">Formação</a>
+                <a href="#projetos" class="text-gray-600 hover:text-primary">Extensão</a>
+                <a href="#publicacoes" class="text-gray-600 hover:text-primary">Publicações</a>
+                <a href="#contato" class="text-gray-600 hover:text-primary">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 md:pt-40 md:pb-28 px-6 bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 space-y-6">
+                <span class="inline-block py-1 px-3 rounded-full bg-cyan-50 text-primary text-xs font-bold uppercase tracking-wider">
+                    Odontologia UFC Sobral
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold text-dark leading-tight">
+                    Francisco Taylan<br>Santos de Lima
+                </h1>
+                <p class="text-lg text-gray-600 max-w-lg leading-relaxed">
+                    Acadêmico de Odontologia, pesquisador e voluntário em projetos de extensão. Focado em Saúde Digital, Odontologia Pública e inovações no ensino superior.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="http://lattes.cnpq.br/2224107126204328" target="_blank" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-secondary transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="fas fa-file-alt"></i> Currículo Lattes
+                    </a>
+                    <a href="#contato" class="px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg font-medium hover:border-primary hover:text-primary transition-all flex items-center gap-2">
+                        <i class="fas fa-envelope"></i> Entrar em Contato
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:justify-end relative">
+                <!-- Decorative blob background -->
+                <div class="absolute top-0 right-10 w-72 h-72 bg-cyan-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                
+                <!-- Placeholder for Profile Image -->
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop" alt="Foto de Perfil" class="w-full h-full object-cover">
+                    <!-- Nota: Substitua a URL acima pela foto real do Francisco quando disponível -->
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section>
-      <div class="summary section" aria-labelledby="sobre">
-        <h2 id="sobre">Sobre</h2>
-        <p class="muted">
-          Discente do Curso de Odontologia pela Universidade Federal do Ceará — Campus Sobral. Participa de projetos de extensão como
-          <strong>Banco de Dentes Humanos Decíduos e Permanentes</strong> e <strong>Projeto Amigodonto</strong>, com atuação em produção bibliográfica, organização de eventos e ações de acolhimento e permanência estudantil.
-        </p>
-      </div>
-
-      <div class="section" aria-labelledby="formacao">
-        <h2 id="formacao">Formação</h2>
-        <ul class="clean" aria-hidden="false">
-          <li><strong>Graduação (em andamento)</strong> — Odontologia, Universidade Federal do Ceará (UFC), Campus Sobral.</li>
-          <li><span class="muted">Ensino Médio concluído (2020–2022)</span></li>
-          <li class="muted">Vários cursos complementares em Odontologia, Saúde Digital, Laserterapia, Comunicação e apresentação científica (2022–2025).</li>
-        </ul>
-      </div>
-
-      <div class="section" aria-labelledby="projetos">
-        <h2 id="projetos">Projetos de Extensão & Atuação</h2>
-        <ul class="clean">
-          <li><strong>Banco de Dentes Humanos Decíduos e Permanentes</strong> — Voluntário (UFC Sobral). Projeto de extensão cadastrado (código 2024.PJ.0701/2025).</li>
-          <li><strong>Projeto Amigodonto</strong> — Atividades de acolhimento, capacitação e incentivo à permanência universitária. (Em andamento)</li>
-          <li><strong>Acompanhamento Pedagógico e Incentivo à Permanência</strong> — Mentorias para ingressantes (concluído).</li>
-        </ul>
-      </div>
-
-      <div class="section" aria-labelledby="publicacoes">
-        <h2 id="publicacoes">Publicações selecionadas</h2>
-        <ul class="clean">
-          <li><strong>"The SUS in the Digital Era: A look at public dentistry in Brazil"</strong> — Revista CPAQV, 2025.</li>
-          <li>Capítulos no livro <em>O SUS diante da era digital: um olhar sobre a odontologia pública no Brasil</em> (BO Editora, 2025) cobrindo temas como Saúde Digital e Odontologia Digital na UFC/Sobral.</li>
-          <li>Artigos e resumos apresentados em jornadas e congressos regionais (2023–2025).</li>
-        </ul>
-      </div>
-
-      <div class="section" aria-labelledby="premios">
-        <h2 id="premios">Prêmios & Reconhecimentos</h2>
-        <ul class="clean">
-          <li>1° Lugar — Apresentação: "Contribuição do Banco de Dentes Humanos..." (2025)</li>
-          <li>Menção Honrosa — "Uso de probióticos..." (2025)</li>
-          <li>1° e 2° lugares em apresentações científicas na UFC Sobral (2024).</li>
-        </ul>
-      </div>
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-bold text-dark mb-8 flex items-center gap-3">
+                <span class="w-10 h-1 bg-primary rounded-full"></span>
+                Sobre Mim
+            </h2>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <p class="text-gray-600 leading-loose mb-6">
+                    Atualmente sou discente do Curso de Odontologia da <strong>Universidade Federal do Ceará - Campus Sobral</strong>. Minha trajetória acadêmica é marcada por uma forte atuação em atividades de extensão e pesquisa.
+                </p>
+                <p class="text-gray-600 leading-loose">
+                    Participo ativamente como voluntário no projeto <em>"Banco de Dentes Humanos Decíduos e Permanentes"</em> e no Programa de Acolhimento e Incentivo à Permanência (PAIP) através do projeto <em>"Amigodonto"</em>, onde já atuei como bolsista com ênfase no desenvolvimento de produções bibliográficas e organização de eventos científicos.
+                </p>
+            </div>
+            
+            <!-- Key Competencies Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
+                    <i class="fas fa-tooth text-2xl text-primary mb-2"></i>
+                    <h3 class="font-medium text-sm">Odontologia</h3>
+                </div>
+                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
+                    <i class="fas fa-laptop-medical text-2xl text-primary mb-2"></i>
+                    <h3 class="font-medium text-sm">Saúde Digital</h3>
+                </div>
+                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
+                    <i class="fas fa-book-medical text-2xl text-primary mb-2"></i>
+                    <h3 class="font-medium text-sm">Pesquisa</h3>
+                </div>
+                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
+                    <i class="fas fa-users text-2xl text-primary mb-2"></i>
+                    <h3 class="font-medium text-sm">Extensão</h3>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <aside aria-labelledby="contato">
-      <div id="contato" class="section contact">
-        <h2>Contato</h2>
-        <a href="mailto:taylansantos@alu.ufc.br">taylansantos@alu.ufc.br</a>
-        <div class="small">LinkedIn: <a href="https://br.linkedin.com/in/taylansantos" target="_blank" rel="noopener">taylansantos</a></div>
-        <div class="small" style="margin-top:8px">Lattes: <a href="http://lattes.cnpq.br/2224107126204328" target="_blank" rel="noopener">2224107126204328</a></div>
+    <!-- Formação e Cursos -->
+    <section id="formacao" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12">
+                
+                <!-- Coluna Esquerda: Educação Formal -->
+                <div class="md:w-1/3">
+                    <h2 class="text-2xl font-bold text-dark mb-8 border-l-4 border-primary pl-4">Formação Acadêmica</h2>
+                    <div class="space-y-8 relative pl-2">
+                        <!-- Linha vertical -->
+                        <div class="absolute left-2 top-2 bottom-2 w-0.5 bg-gray-200"></div>
+                        
+                        <!-- Item 1 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1.5 w-4 h-4 bg-primary rounded-full border-4 border-white"></div>
+                            <span class="text-sm text-primary font-semibold">2023 - Presente</span>
+                            <h3 class="text-lg font-bold text-gray-800 mt-1">Graduação em Odontologia</h3>
+                            <p class="text-gray-500 text-sm">Universidade Federal do Ceará (UFC)</p>
+                            <p class="text-gray-400 text-xs mt-1">Campus Sobral</p>
+                        </div>
 
-        <a class="btn" href="/mnt/data/Currículo do Sistema de Currículos Lattes (Francisco Taylan Santos de Lima).pdf" target="_blank" rel="noopener">
-          Abrir CV (PDF)
-        </a>
+                        <!-- Item 2 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1.5 w-4 h-4 bg-gray-300 rounded-full border-4 border-white"></div>
+                            <span class="text-sm text-gray-500 font-semibold">2020 - 2022</span>
+                            <h3 class="text-lg font-bold text-gray-800 mt-1">Ensino Médio</h3>
+                            <p class="text-gray-500 text-sm">EEMTI Raimunda Silveira de Sousa Carneiro</p>
+                        </div>
+                    </div>
+                </div>
 
-        <div style="margin-top:16px">
-          <h3 style="margin:0 0 8px 0;font-size:14px">Competências</h3>
-          <div class="chip">Pesquisa & Produção Científica</div>
-          <div class="chip">Extensão Universitária</div>
-          <div class="chip">Comunicação Científica</div>
-          <div class="chip">Odontologia Digital</div>
+                <!-- Coluna Direita: Cursos Complementares (Seleção) -->
+                <div class="md:w-2/3">
+                    <h2 class="text-2xl font-bold text-dark mb-8 border-l-4 border-primary pl-4">Cursos & Aperfeiçoamentos (2024-2025)</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- Card Curso -->
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="text-xs text-primary font-bold mb-1">2025 • UFC</div>
+                            <h4 class="font-semibold text-gray-800">Hands On | Meu Primeiro Implante: Digital Experience</h4>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="text-xs text-primary font-bold mb-1">2025 • UFC</div>
+                            <h4 class="font-semibold text-gray-800">Laserterapia</h4>
+                        </div>
+
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="text-xs text-primary font-bold mb-1">2025 • Fiocruz</div>
+                            <h4 class="font-semibold text-gray-800">Introdução à Saúde Digital</h4>
+                        </div>
+
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="text-xs text-primary font-bold mb-1">2024 • UFC</div>
+                            <h4 class="font-semibold text-gray-800">Hands-on | Retalhos e Suturas em Periodontia</h4>
+                        </div>
+
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="text-xs text-primary font-bold mb-1">2024 • UFC</div>
+                            <h4 class="font-semibold text-gray-800">Desvendando a Harmonização Orofacial</h4>
+                        </div>
+
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="text-xs text-primary font-bold mb-1">2024 • ENAP</div>
+                            <h4 class="font-semibold text-gray-800">Comunicação Assertiva e Oratória</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div style="margin-top:18px">
-          <h3 style="margin:0 0 8px 0;font-size:14px">Idiomas</h3>
-          <div class="small">Português — Compreende, fala, lê e escreve bem.</div>
+    <!-- Projetos de Extensão -->
+    <section id="projetos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Atuação em Projetos de Extensão</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Projeto 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border-t-4 border-blue-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Banco de Dentes Humanos</h3>
+                        <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">Em Andamento</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Atuação como voluntário no processamento e organização do banco de dentes decíduos e permanentes da UFC Sobral, essencial para o ensino prático.
+                    </p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-clock mr-2"></i> Carga horária semanal: 2h
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border-t-4 border-teal-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Projeto Amigodonto</h3>
+                        <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">Em Andamento</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Programa de Acolhimento e Incentivo à Permanência. Desenvolvimento de cursos, workshops e produções bibliográficas visando reduzir a evasão e acolher novos alunos.
+                    </p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-star mr-2"></i> Ex-bolsista de Iniciação Acadêmica
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </aside>
+    </section>
 
-    <footer>
-      <div>Página gerada automaticamente a partir do currículo Lattes.</div>
-      <div class="muted">Fonte: Currículo Lattes — Francisco Taylan. :contentReference[oaicite:1]{index=1}</div>
+    <!-- Produção Bibliográfica -->
+    <section id="publicacoes" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-dark mb-4">Produção Bibliográfica</h2>
+            <p class="text-gray-500 mb-12">Destaques da produção técnica e acadêmica recente.</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Categoria: Livros -->
+                <div class="col-span-1 md:col-span-3 lg:col-span-1">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fas fa-book text-primary"></i> Livros & Manuais
+                    </h3>
+                    <div class="space-y-4">
+                        <article class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                            <h4 class="font-bold text-gray-800 text-sm">O SUS DIANTE DA ERA DIGITAL</h4>
+                            <p class="text-xs text-gray-500 mt-1">Um olhar sobre a odontologia pública no Brasil.</p>
+                            <div class="mt-2 text-xs text-gray-400">Ed. BO Editora, 2025.</div>
+                        </article>
+                        
+                        <article class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                            <h4 class="font-bold text-gray-800 text-sm">MANUAL DE BIOSSEGURANÇA EM ODONTOLOGIA</h4>
+                            <p class="text-xs text-gray-500 mt-1">Co-autoria.</p>
+                            <div class="mt-2 text-xs text-gray-400">2ª Edição, 2024.</div>
+                        </article>
+
+                        <article class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                            <h4 class="font-bold text-gray-800 text-sm">GUIA PARA ALUNOS INGRESSANTES</h4>
+                            <p class="text-xs text-gray-500 mt-1">UFC Sobral.</p>
+                            <div class="mt-2 text-xs text-gray-400">1ª Edição, 2024.</div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Categoria: Capítulos de Livros -->
+                <div class="col-span-1 md:col-span-3 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fas fa-file-medical text-primary"></i> Capítulos & Artigos Selecionados
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
+                            <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded uppercase">Artigo</span>
+                            <h4 class="font-bold text-gray-800 mt-2">The SUS in the Digital Era</h4>
+                            <p class="text-sm text-gray-600 mt-1">A look at public dentistry in Brazil.</p>
+                            <p class="text-xs text-gray-400 mt-2 italic">Revista CPAQV, 2025.</p>
+                        </div>
+
+                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
+                            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded uppercase">Capítulo</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Introdução à Saúde Digital</h4>
+                            <p class="text-sm text-gray-600 mt-1">Parte da obra: O SUS Diante da Era Digital.</p>
+                        </div>
+
+                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
+                            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded uppercase">Capítulo</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Teleodontologia no Brasil</h4>
+                            <p class="text-sm text-gray-600 mt-1">Análise das inovações digitais na odontologia pública.</p>
+                        </div>
+                        
+                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
+                            <span class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded uppercase">Resumo</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Fisiopatologia da Doença Periodontal Gestacional</h4>
+                            <p class="text-sm text-gray-600 mt-1">Apresentado na XIV Jornada Odontológica de Sobral.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Prêmios -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center">Reconhecimentos & Prêmios</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Prêmio 1 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                    <div class="text-3xl mb-3">🥇</div>
+                    <div class="font-bold text-lg mb-2">1º Lugar</div>
+                    <p class="text-sm text-cyan-50">Contribuição do Banco de Dentes no Ensino-Aprendizagem</p>
+                    <p class="text-xs text-cyan-200 mt-2">Faculdade Luciano Feijão, 2025</p>
+                </div>
+
+                <!-- Prêmio 2 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                    <div class="text-3xl mb-3">🎖️</div>
+                    <div class="font-bold text-lg mb-2">Menção Honrosa</div>
+                    <p class="text-sm text-cyan-50">Uso de Probióticos como Terapia Adjuvante</p>
+                    <p class="text-xs text-cyan-200 mt-2">UFC Sobral, 2025</p>
+                </div>
+
+                <!-- Prêmio 3 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                    <div class="text-3xl mb-3">🥇</div>
+                    <div class="font-bold text-lg mb-2">1º Lugar</div>
+                    <p class="text-sm text-cyan-50">Fisiopatologia da Doença Periodontal Gestacional</p>
+                    <p class="text-xs text-cyan-200 mt-2">UFC Sobral, 2024</p>
+                </div>
+
+                <!-- Prêmio 4 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                    <div class="text-3xl mb-3">🥈</div>
+                    <div class="font-bold text-lg mb-2">2º Lugar</div>
+                    <p class="text-sm text-cyan-50">Síndrome de Eagle e Impactos na Qualidade de Vida</p>
+                    <p class="text-xs text-cyan-200 mt-2">UFC Sobral, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contato -->
+    <footer id="contato" class="bg-dark text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h2 class="text-2xl font-bold mb-2">Vamos conectar?</h2>
+                    <p class="text-gray-400">Disponível para colaborações em pesquisa e projetos acadêmicos.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="mailto:taylansantos@alu.ufc.br" class="w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://br.linkedin.com/in/taylansantos" target="_blank" class="w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="http://lattes.cnpq.br/2224107126204328" target="_blank" class="w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all" title="Lattes">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2025 Francisco Taylan Santos de Lima. Todos os direitos reservados.</p>
+                <div class="mt-4 md:mt-0 flex gap-6">
+                    <span>ID Lattes: 2224107126204328</span>
+                    <span>Brasil</span>
+                </div>
+            </div>
+        </div>
     </footer>
-  </main>
+
+    <!-- Script simples para animação do header ao scroll -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('py-4');
+                nav.classList.add('py-2');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.remove('py-2');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
 </body>
 </html>
