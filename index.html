@@ -1,372 +1,201 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Currículo — Francisco Taylan Santos de Lima</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Francisco Taylan Santos de Lima — Odontologia</title>
+  <meta name="description" content="Perfil profissional de Francisco Taylan — estudante de Odontologia, projetos, publicações e contato." />
   <style>
-    /* ---------- Variables ---------- */
     :root{
-      --bg:#0b0c10; --card:#0f1724; --text:#e6eef8; --muted:#9fb0cf; --accent:#5b9cff; --chip:#141821; --border:#202633; --link:#8ab4ff;
-      --radius:14px; --glass: rgba(255,255,255,0.03); --scroll-offset:96px;
+      --bg:#FBFBFB;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#0f172a;
+      --glass: rgba(15,23,42,0.04);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f7f9fc; --card:#fff; --text:#0b1220; --muted:#4b5563; --accent:#2156d6; --chip:#eef2ff; --border:#e6e9ef; --link:#1d4ed8; --glass: rgba(13,27,57,0.02);}
-    }
-
-    /* ---------- Base ---------- */
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:var(--scroll-offset)}
     html,body{height:100%}
-    body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans";background:radial-gradient(1200px 800px at 10% -10%, rgba(91,156,255,.06), transparent 40%),radial-gradient(900px 600px at 110% 10%, rgba(78,205,196,.04), transparent 45%),var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-    a{color:var(--link)}
-
-    /* Skip link */
-    .skip-link{position:absolute;left:8px;top:8px;padding:8px 12px;background:var(--card);color:var(--text);border-radius:8px;transform:translateY(-120%);transition:transform .18s;z-index:999}
-    .skip-link:focus{transform:translateY(0);outline:3px solid var(--accent)}
-
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 64px}
-
-    /* ---------- Layout ---------- */
-    .layout{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
-
-    /* ---------- Sidebar ---------- */
-    aside.sidebar{padding:22px;background:linear-gradient(180deg,var(--glass),transparent),var(--card);border-radius:var(--radius);border:1px solid var(--border);box-shadow:0 10px 30px rgba(2,6,23,.5);display:flex;flex-direction:column;gap:12px;z-index:40}
-    /* Sticky only on wide screens to avoid overlap on mobile */
-    @media (min-width:981px){
-      aside.sidebar{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;-webkit-overflow-scrolling:touch}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#f6f7f9);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
     }
-    .profile .name{margin:0;font-size:18px;font-weight:600}
-    .profile p{margin:0;color:var(--muted);font-weight:500}
-    .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-    .meta{font-size:13px;color:var(--muted);word-break:break-word}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .chip{background:var(--chip);padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid var(--border)}
-    nav.side-nav{margin-top:8px}
-    nav.side-nav h3{margin:10px 0 4px;font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-    nav.side-nav ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
-    nav.side-nav a{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;text-decoration:none;color:var(--text);border:1px solid transparent;transition:all .18s}
-    nav.side-nav a:hover,nav.side-nav a:focus{background:var(--chip);border-color:var(--border);transform:translateY(-2px);outline:none}
-    nav.side-nav a[aria-current='true']{background:linear-gradient(90deg,var(--accent),rgba(91,156,255,.6));color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(91,156,255,.12)}
+    .container{
+      width:100%;
+      max-width:980px;
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:0 8px 30px rgba(20,25,30,0.06);
+      padding:36px;
+      display:grid;
+      grid-template-columns:1fr 340px;
+      gap:28px;
+    }
 
-    /* improve long-word handling */
-    .card,.meta,body{word-break:break-word;overflow-wrap:anywhere}
+    header{
+      grid-column:1 / -1;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:6px;
+    }
+    .profile {
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .avatar{
+      width:88px;
+      height:88px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#e6eefc,#f7fff9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:22px;
+      color:#0f172a;
+      box-shadow:0 6px 18px rgba(10,15,25,0.04);
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{margin:2px 0 0;color:var(--muted);font-size:14px}
 
-    /* ---------- Main ---------- */
-    main.content{min-height:80vh;z-index:10}
-    header.hero{display:flex;flex-direction:column;gap:8px;padding:24px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent),var(--card);border:1px solid var(--border);box-shadow:0 8px 24px rgba(2,6,23,.45)}
-    header.hero h1{margin:0;font-size:28px}
-    header.hero p.role{margin:0;color:var(--muted);font-weight:500}
-    header.hero .hero-meta{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
+    /* main content */
+    .summary{padding:20px;background:var(--glass);border-radius:10px}
+    .section{margin-bottom:20px}
+    .section h2{
+      font-size:15px;margin:0 0 10px 0;
+      letter-spacing:0.2px;
+    }
+    ul.clean{list-style:none;padding:0;margin:0}
+    ul.clean li{padding:6px 0;border-bottom:1px dashed rgba(15,23,42,0.04);font-size:14px;color:#111827}
+    .muted{color:var(--muted);font-size:13px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid rgba(15,23,42,0.04);font-size:13px;margin:6px 6px 0 0}
 
-    .section{margin-bottom:18px;scroll-margin-top:calc(var(--scroll-offset) + 8px)}
-    .section h2{font-size:14px;margin:0 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--border);box-shadow:0 6px 20px rgba(2,6,23,.35);transition:transform .18s,box-shadow .18s}
-    .card:hover{transform:translateY(-4px)}
-    .item{padding:12px}
-    .item h3{margin:0 0 6px;font-size:16px}
-    .item .sub{color:var(--muted);font-size:14px;margin:0 0 8px}
-    .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .list{display:grid;gap:10px}
-    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .k{padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.01),transparent);border:1px solid var(--border);text-align:center}
-    .k strong{display:block;font-size:20px;color:var(--accent)}
+    /* sidebar */
+    aside{
+      padding:20px;background:linear-gradient(180deg,#fff,#fbfdff);
+      border-radius:10px;height:fit-content;
+      border:1px solid rgba(15,23,42,0.03);
+    }
+    .contact a{display:block;color:var(--accent);text-decoration:none;margin-bottom:6px;font-weight:600}
+    .small{font-size:13px;color:var(--muted)}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;background:#08132b;color:#fff;text-decoration:none;font-weight:600;margin-top:12px;
+      box-shadow:0 6px 18px rgba(8,19,43,0.12)
+    }
 
-    /* accessibility & focus */
-    :focus{outline-offset:3px}
-    a:focus{outline:3px dashed var(--accent)}
+    footer{grid-column:1 / -1;margin-top:6px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
 
-    /* small screens */
-    @media (max-width:980px){.layout{grid-template-columns:1fr}.sidebar{position:relative;max-height:none;height:auto;overflow:visible}.kpi{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}}
-
-    /* print */
-    @media print{body{background:#fff;color:#111}.sidebar,.card{box-shadow:none;border:none}a{color:inherit}}
+    /* responsive */
+    @media(max-width:880px){
+      .container{grid-template-columns:1fr; padding:20px}
+      aside{order:3;margin-top:6px}
+    }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
-  <div class="wrap">
-    <div class="layout">
+  <main class="container" role="main" aria-labelledby="hero">
+    <header id="hero">
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">FT</div>
+        <div>
+          <h1>Francisco Taylan Santos de Lima</h1>
+          <p class="lead">Estudante de Odontologia — Universidade Federal do Ceará (Campus Sobral)</p>
+          <p class="muted">Última atualização do currículo: 21/11/2025</p>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <a href="#contato" class="btn" aria-label="Entrar em contato">Contato / CV</a>
+        <div class="small" style="margin-top:8px">ID Lattes: 2224107126204328</div>
+      </div>
+    </header>
 
-      <aside class="sidebar" aria-labelledby="profile-name" role="complementary">
-        <div class="profile">
-          <p class="name" id="profile-name">Francisco Taylan Santos de Lima</p>
-          <p>Discente de Odontologia — Universidade Federal do Ceará (Campus Sobral)</p>
-          <div class="chips">
-            <span class="chip">Odontologia</span>
-            <span class="chip">Extensão universitária</span>
-            <span class="chip">Produção científica</span>
-          </div>
-          <div class="meta-grid">
-            <div class="meta">Lattes ID: <a href="https://lattes.cnpq.br/2224107126204328" target="_blank" rel="noopener">2224107126204328</a></div>
-            <div class="meta contact">E-mail: <a href="mailto:taylansantos@alu.ufc.br">taylansantos@alu.ufc.br</a></div>
-          </div>
+    <section>
+      <div class="summary section" aria-labelledby="sobre">
+        <h2 id="sobre">Sobre</h2>
+        <p class="muted">
+          Discente do Curso de Odontologia pela Universidade Federal do Ceará — Campus Sobral. Participa de projetos de extensão como
+          <strong>Banco de Dentes Humanos Decíduos e Permanentes</strong> e <strong>Projeto Amigodonto</strong>, com atuação em produção bibliográfica, organização de eventos e ações de acolhimento e permanência estudantil.
+        </p>
+      </div>
+
+      <div class="section" aria-labelledby="formacao">
+        <h2 id="formacao">Formação</h2>
+        <ul class="clean" aria-hidden="false">
+          <li><strong>Graduação (em andamento)</strong> — Odontologia, Universidade Federal do Ceará (UFC), Campus Sobral.</li>
+          <li><span class="muted">Ensino Médio concluído (2020–2022)</span></li>
+          <li class="muted">Vários cursos complementares em Odontologia, Saúde Digital, Laserterapia, Comunicação e apresentação científica (2022–2025).</li>
+        </ul>
+      </div>
+
+      <div class="section" aria-labelledby="projetos">
+        <h2 id="projetos">Projetos de Extensão & Atuação</h2>
+        <ul class="clean">
+          <li><strong>Banco de Dentes Humanos Decíduos e Permanentes</strong> — Voluntário (UFC Sobral). Projeto de extensão cadastrado (código 2024.PJ.0701/2025).</li>
+          <li><strong>Projeto Amigodonto</strong> — Atividades de acolhimento, capacitação e incentivo à permanência universitária. (Em andamento)</li>
+          <li><strong>Acompanhamento Pedagógico e Incentivo à Permanência</strong> — Mentorias para ingressantes (concluído).</li>
+        </ul>
+      </div>
+
+      <div class="section" aria-labelledby="publicacoes">
+        <h2 id="publicacoes">Publicações selecionadas</h2>
+        <ul class="clean">
+          <li><strong>"The SUS in the Digital Era: A look at public dentistry in Brazil"</strong> — Revista CPAQV, 2025.</li>
+          <li>Capítulos no livro <em>O SUS diante da era digital: um olhar sobre a odontologia pública no Brasil</em> (BO Editora, 2025) cobrindo temas como Saúde Digital e Odontologia Digital na UFC/Sobral.</li>
+          <li>Artigos e resumos apresentados em jornadas e congressos regionais (2023–2025).</li>
+        </ul>
+      </div>
+
+      <div class="section" aria-labelledby="premios">
+        <h2 id="premios">Prêmios & Reconhecimentos</h2>
+        <ul class="clean">
+          <li>1° Lugar — Apresentação: "Contribuição do Banco de Dentes Humanos..." (2025)</li>
+          <li>Menção Honrosa — "Uso de probióticos..." (2025)</li>
+          <li>1° e 2° lugares em apresentações científicas na UFC Sobral (2024).</li>
+        </ul>
+      </div>
+    </section>
+
+    <aside aria-labelledby="contato">
+      <div id="contato" class="section contact">
+        <h2>Contato</h2>
+        <a href="mailto:taylansantos@alu.ufc.br">taylansantos@alu.ufc.br</a>
+        <div class="small">LinkedIn: <a href="https://br.linkedin.com/in/taylansantos" target="_blank" rel="noopener">taylansantos</a></div>
+        <div class="small" style="margin-top:8px">Lattes: <a href="http://lattes.cnpq.br/2224107126204328" target="_blank" rel="noopener">2224107126204328</a></div>
+
+        <a class="btn" href="/mnt/data/Currículo do Sistema de Currículos Lattes (Francisco Taylan Santos de Lima).pdf" target="_blank" rel="noopener">
+          Abrir CV (PDF)
+        </a>
+
+        <div style="margin-top:16px">
+          <h3 style="margin:0 0 8px 0;font-size:14px">Competências</h3>
+          <div class="chip">Pesquisa & Produção Científica</div>
+          <div class="chip">Extensão Universitária</div>
+          <div class="chip">Comunicação Científica</div>
+          <div class="chip">Odontologia Digital</div>
         </div>
 
-        <nav class="side-nav" aria-label="Navegação do currículo" role="navigation">
-          <h3>navegação</h3>
-          <ul>
-            <li><a href="#sobre"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zM4 20c0-4 4-6 8-6s8 2 8 6v1H4v-1z" fill="currentColor"/></svg>Sobre</a></li>
-            <li><a href="#formacao"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6l8-4 8 4-8 4zM4 10l8 4 8-4M4 14l8 4 8-4" stroke="currentColor" stroke-width="0" fill="currentColor"/></svg>Formação</a></li>
-            <li><a href="#complementar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" fill="currentColor"/></svg>Formação complementar</a></li>
-            <li><a href="#premios"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" fill="currentColor"/></svg>Prêmios &amp; títulos</a></li>
-            <li><a href="#projetos"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18v2H3zM3 11h18v8H3z" fill="currentColor"/></svg>Projetos</a></li>
-            <li><a href="#producao"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" fill="currentColor"/></svg>Produção</a></li>
-            <li><a href="#eventos"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 10h10v2H7zM7 14h6v2H7z" fill="currentColor"/></svg>Eventos</a></li>
-            <li><a href="#totais"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h4v18H3zM10 8h4v13h-4zM19 13h2v8h-2z" fill="currentColor"/></svg>Totais</a></li>
-          </ul>
-        </nav>
-      </aside>
+        <div style="margin-top:18px">
+          <h3 style="margin:0 0 8px 0;font-size:14px">Idiomas</h3>
+          <div class="small">Português — Compreende, fala, lê e escreve bem.</div>
+        </div>
+      </div>
+    </aside>
 
-      <main id="main-content" class="content">
-        <header class="hero card" role="banner">
-          <h1>Francisco Taylan Santos de Lima</h1>
-          <p class="role">Discente de Odontologia — Universidade Federal do Ceará (Campus Sobral)</p>
-          <div class="hero-meta">
-            <div class="muted">Lattes: <a href="https://lattes.cnpq.br/2224107126204328" target="_blank" rel="noopener">2224107126204328</a></div>
-            <div class="muted">E-mail: <a href="mailto:taylansantos@alu.ufc.br">taylansantos@alu.ufc.br</a></div>
-          </div>
-        </header>
-
-        <section id="sobre" class="section">
-          <h2>Sobre</h2>
-          <div class="card">
-            <p>Atualmente é discente do Curso de Odontologia da Universidade Federal do Ceará — Campus Sobral. Participa como voluntário do Programa de Extensão Universitária no projeto “Banco de Dentes Humanos Decíduos e Permanentes”, e do Programa de Acolhimento e Incentivo à Permanência (PAIP), no projeto “Amigodonto”, onde já atuou como bolsista de Iniciação Acadêmica com ênfase no desenvolvimento de produções bibliográficas e organização de eventos. Também participou do PAIP no projeto “Acompanhamento Pedagógico e Incentivo à Permanência no Curso de Odontologia do Campus de Sobral”.</p>
-          </div>
-        </section>
-
-        <section id="formacao" class="section">
-          <h2>Formação acadêmica</h2>
-          <div class="list">
-            <div class="card item">
-              <h3>Graduação em Odontologia</h3>
-              <p class="sub">Universidade Federal do Ceará (UFC) — Fortaleza/Sobral, Brasil — 2023–atual</p>
-            </div>
-            <div class="card item">
-              <h3>Ensino Médio (2º grau)</h3>
-              <p class="sub">EEMTI Raimunda Silveira de Sousa Carneiro — 2020–2022</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="complementar" class="section">
-          <h2>Formação complementar</h2>
-          <div class="two-col">
-            <div class="card">
-              <h3>2025</h3>
-              <ul>
-                <li>Comunicação Assertiva: Oratória, Retórica e Técnicas de Apresentação — ENAP</li>
-                <li>Laserterapia — Universidade Federal do Ceará (Campus Sobral)</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>2024</h3>
-              <ul>
-                <li>Desvendando a Harmonização Orofacial — UFC (Campus Sobral)</li>
-                <li>Questões essenciais à Radiologia e à Saúde no Brasil — Senado Federal</li>
-                <li>Design para apresentações científicas — UFC (Campus Sobral)</li>
-                <li>Hands-on | Retalhos e Sutura em Periodontia: da teoria à prática clínica — UFC</li>
-                <li>Sistema Único de Saúde: histórico, princípios, diretrizes e políticas — CRO-CE</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>2023</h3>
-              <ul>
-                <li>Odontologia Digital: alcançando naturalidade com previsibilidade — UFC</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>2022</h3>
-              <ul>
-                <li>Produção de vídeos: uma introdução — ENAP</li>
-                <li>Introdução ao Federalismo Fiscal no Brasil — ENAP</li>
-                <li>Políticas Étnico-Raciais: conceitos e métodos na superação do racismo e discriminação — ENAP</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="premios" class="section">
-          <h2>Prêmios &amp; títulos</h2>
-          <div class="list">
-            <div class="card item">
-              <h3>1º lugar — Faculdade Luciano Feijão (2025)</h3>
-              <p class="sub">Trabalho: “Contribuição do Banco de Dentes Humanos no Processo de Ensino-Aprendizagem na Odontologia: um relato de experiência”.</p>
-            </div>
-            <div class="card item">
-              <h3>1º lugar — Encontros Universitários UFC Sobral (2024)</h3>
-              <p class="sub">Trabalho: “A fisiopatologia da doença periodontal associada com o período gestacional: uma revisão de literatura”.</p>
-            </div>
-            <div class="card item">
-              <h3>2º lugar — Encontros Universitários UFC Sobral (2024)</h3>
-              <p class="sub">Trabalho: “Síndrome de Eagle, impactos na região de cabeça e pescoço e na qualidade de vida dos pacientes: revisão de literatura”.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="projetos" class="section">
-          <h2>Projetos</h2>
-          <div class="list">
-            <div class="card item">
-              <h3>Banco de Dentes Humanos Decíduos e Permanentes — UFC Sobral</h3>
-              <p class="sub">Projeto de extensão — 2025–atual — Orientação: Igor Iuco Castro da Silva</p>
-              <p>Participação voluntária com carga horária semanal de 2h (total 8h no período de 01/02/2025 a 03/02/2025). Alunos envolvidos: 14.</p>
-            </div>
-            <div class="card item">
-              <h3>Projeto Amigodonto — PAIP</h3>
-              <p class="sub">Outros tipos de projetos — 2024–atual — Responsável: Poliana Lima Bastos</p>
-              <p>Atividades de acolhimento, permanência universitária e capacitação por meio de cursos, workshops e produções bibliográficas, nos formatos remoto e presencial.</p>
-            </div>
-            <div class="card item">
-              <h3>Acompanhamento pedagógico e incentivo à permanência no Curso de Odontologia (UFC/Sobral)</h3>
-              <p class="sub">Outros tipos de projetos — 2024 — Concluído</p>
-              <p>Mentorias para alunos recém-ingressos, com foco em reduzir evasão acadêmica e divulgar projetos de extensão.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="producao" class="section">
-          <h2>Produção</h2>
-          <div class="list">
-            <div class="card item">
-              <h3>Livros publicados</h3>
-              <ul>
-                <li><strong>Guia para alunos ingressantes do Curso de Odontologia da UFC — Sobral</strong>. Editora B&amp;O, 2024. (coautoria)</li>
-                <li><strong>Manual de Biossegurança em Odontologia (2ª ed.)</strong>. Editora B&amp;O, 2024. (coautoria)</li>
-              </ul>
-            </div>
-            <div class="card item">
-              <h3>Capítulos de livros</h3>
-              <ul>
-                <li>Cap. 5 — Processamento dos produtos para saúde: Limpeza, preparo e esterilização do material. In: <em>Manual de Biossegurança em Odontologia</em>, 2ª ed., 2024, p. 37–66. (coautoria)</li>
-              </ul>
-            </div>
-            <div class="card item">
-              <h3>Trabalhos em anais</h3>
-              <ul>
-                <li><em>A fisiopatologia da doença periodontal associada com o período gestacional: uma revisão de literatura</em>. Anais da 14ª Jornada Odontológica de Sobral &amp; 16ª Jornada Sobralense de Estomatologia, Radiologia Odontológica e Patologia Oral, 2024.</li>
-              </ul>
-            </div>
-            <div class="card item">
-              <h3>Apresentações de trabalho e palestras</h3>
-              <ul>
-                <li>Contribuição do Banco de Dentes Humanos no Processo de Ensino-Aprendizagem na Odontologia: um relato de experiência — 2025.</li>
-                <li>A fisiopatologia da doença periodontal associada com o período gestacional: uma revisão de literatura — 2024.</li>
-                <li>A identificação de líquen plano oral no cotidiano clínico e novas perspectivas de tratamento: revisão de literatura — 2024.</li>
-                <li>Acompanhamento pedagógico e incentivo à permanência no curso de Odontologia — 2024.</li>
-                <li>Interação no ensino de Anatomia do Curso de Odontologia da UFC — Campus Sobral como estratégia de acolhimento e permanência universitária — 2024.</li>
-                <li>O impacto do Projeto Amigodonto na permanência universitária: um relato de experiência — 2024.</li>
-                <li>O papel do bolsista voluntário no acompanhamento pedagógico e incentivo à permanência dos discentes: um relato de experiência — 2024.</li>
-                <li>Papel do bolsista de iniciação acadêmica no Projeto de Acolhimento e Incentivo à Permanência Amigodonto: um relato de experiência — 2024.</li>
-                <li>Reabilitação oral com prótese obturadora provisória: um relato de experiência — 2024.</li>
-                <li>Síndrome de Eagle, impactos na região de cabeça e pescoço e na qualidade de vida dos pacientes: revisão de literatura — 2024.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="eventos" class="section">
-          <h2>Eventos</h2>
-          <div class="two-col">
-            <div class="card">
-              <h3>Participações</h3>
-              <ul>
-                <li>Encontros Universitários 2024 — Apresentação oral: “Papel do bolsista de iniciação acadêmica no Projeto de Acolhimento e Incentivo à Permanência Amigodonto: um relato de experiência”.</li>
-                <li>II Simpósio de Biotecnologia do Semiárido &amp; VII Seminário de Inovação, Empreendedorismo e Gestão de Pequenas Empresas (SInEGEPE) — 2024.</li>
-                <li>XIV Jornada Odontológica de Sobral &amp; XVI Jornada Sobralense de Estomatologia, Radiologia Odontológica e Patologia Oral — 2024.</li>
-                <li>XIII Jornada Odontológica de Sobral &amp; XV Jornada Sobralense de Estomatologia, Radiologia Odontológica e Patologia Oral — 2023.</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Organização</h3>
-              <ul>
-                <li>Cursos/Workshops — Projeto Amigodonto (2024).</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="totais" class="section">
-          <h2>Totais de produção</h2>
-          <div class="kpi">
-            <div class="k"><strong>2</strong>Livros publicados</div>
-            <div class="k"><strong>1</strong>Capítulo de livro</div>
-            <div class="k"><strong>1</strong>Trabalho em anais</div>
-            <div class="k"><strong>10</strong>Apresentações (congressos)</div>
-          </div>
-        </section>
-
-        <footer class="muted" style="text-align:center;padding-top:8px">Currículo gerado a partir do arquivo original — design modernizado.</footer>
-
-      </main>
-    </div>
-  </div>
-
-  <script>
-    // Robust navigation highlighter with fallback
-    (function(){
-      const links = Array.from(document.querySelectorAll('nav.side-nav a'));
-      const sections = Array.from(document.querySelectorAll('main .section'));
-      const map = new Map();
-
-      // normalize mapping (only hash keys)
-      links.forEach(a=>{
-        const href = a.getAttribute('href');
-        if (href && href.startsWith('#')) map.set(href, a);
-        else if (a.hash) map.set(a.hash, a);
-      });
-
-      function setActiveById(id){
-        links.forEach(l=>l.removeAttribute('aria-current'));
-        const link = map.get(id);
-        if (link) link.setAttribute('aria-current','true');
-      }
-
-      // click should set active state immediately
-      links.forEach(a=>a.addEventListener('click', (e)=>{
-        const href = a.getAttribute('href');
-        const id = (href && href.startsWith('#')) ? href : a.hash || null;
-        if (id) setActiveById(id);
-        // let native smooth scroll handle position (scroll-padding-top in CSS)
-      }));
-
-      if ('IntersectionObserver' in window && sections.length){
-        const obs = new IntersectionObserver((entries)=>{
-          entries.forEach(entry=>{
-            if (entry.isIntersecting && entry.intersectionRatio > 0.45){
-              setActiveById('#'+entry.target.id);
-            }
-          });
-        }, {root:null, rootMargin:'0px 0px -40% 0px', threshold:[0.45]});
-        sections.forEach(s=>obs.observe(s));
-      } else if (sections.length){
-        // fallback: nearest-to-viewport-centre approach (debounced with rAF)
-        let ticking = false;
-        function onScroll(){
-          if (!ticking){
-            ticking = true;
-            requestAnimationFrame(()=>{
-              let best=null; let bestDist=Infinity;
-              const targetY = window.scrollY + (window.innerHeight * 0.33);
-              sections.forEach(s=>{
-                const top = s.getBoundingClientRect().top + window.scrollY;
-                const dist = Math.abs(top - targetY);
-                if (dist < bestDist){ bestDist = dist; best = s; }
-              });
-              if (best) setActiveById('#'+best.id);
-              ticking = false;
-            });
-          }
-        }
-        document.addEventListener('scroll', onScroll, {passive:true});
-        onScroll();
-      }
-
-      // small enhancement: if user lands on page with hash, set active
-      if (location.hash) setActiveById(location.hash);
-
-    })();
-  </script>
+    <footer>
+      <div>Página gerada automaticamente a partir do currículo Lattes.</div>
+      <div class="muted">Fonte: Currículo Lattes — Francisco Taylan. :contentReference[oaicite:1]{index=1}</div>
+    </footer>
+  </main>
 </body>
 </html>
