@@ -1,410 +1,1161 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francisco Taylan Santos de Lima | Acadêmico de Odontologia</title>
-    <meta name="description" content="Portfólio acadêmico e profissional de Francisco Taylan Santos de Lima, discente de Odontologia da UFC Sobral.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>App de Pedidos - DOGÃO PREÁ</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#0e7490', // Cyan-700
-                        secondary: '#155e75', // Cyan-800
-                        light: '#f8fafc',
-                        dark: '#0f172a'
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-primary tracking-tight">F. Taylan Lima</a>
+    <style>
+        /* --- VARIAVEIS & TEMAS --- */
+        :root {
+            /* Cores da Marca */
+            --primary: #ff9f1c;
+            --primary-rgb: 255, 159, 28;
+            --primary-dark: #e08b15;
+            --whatsapp: #25D366;
+            --danger: #ff4444;
+            --success: #00c851; /* Verde Status */
+            --ai-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --info-bg: rgba(59, 130, 246, 0.15);
             
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-                <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
-                <a href="#formacao" class="hover:text-primary transition-colors">Formação</a>
-                <a href="#projetos" class="hover:text-primary transition-colors">Extensão</a>
-                <a href="#publicacoes" class="hover:text-primary transition-colors">Publicações</a>
-                <a href="#contato" class="hover:text-primary transition-colors">Contato</a>
-            </div>
+            /* Tema Claro (Padrão e Único) */
+            --bg-body: #f0f2f5;
+            --bg-card: #ffffff;
+            --bg-element: #e4e6eb;
+            --bg-header: rgba(255, 255, 255, 0.95);
+            --text-main: #1c1e21;
+            --text-muted: #65676b;
+            --border-color: #e4e6eb;
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            --input-bg: #ffffff;
+            --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+            --info-text: #2563eb;
+        }
 
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-600 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4">
-            <div class="flex flex-col space-y-4">
-                <a href="#sobre" class="text-gray-600 hover:text-primary">Sobre</a>
-                <a href="#formacao" class="text-gray-600 hover:text-primary">Formação</a>
-                <a href="#projetos" class="text-gray-600 hover:text-primary">Extensão</a>
-                <a href="#publicacoes" class="text-gray-600 hover:text-primary">Publicações</a>
-                <a href="#contato" class="text-gray-600 hover:text-primary">Contato</a>
-            </div>
-        </div>
-    </nav>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 100px;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-    <!-- Hero Section -->
-    <header class="pt-32 pb-20 md:pt-40 md:pb-28 px-6 bg-white">
-        <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 space-y-6">
-                <span class="inline-block py-1 px-3 rounded-full bg-cyan-50 text-primary text-xs font-bold uppercase tracking-wider">
-                    Odontologia UFC Sobral
-                </span>
-                <h1 class="text-4xl md:text-6xl font-bold text-dark leading-tight">
-                    Francisco Taylan<br>Santos de Lima
-                </h1>
-                <p class="text-lg text-gray-600 max-w-lg leading-relaxed">
-                    Acadêmico de Odontologia, pesquisador e voluntário em projetos de extensão. Focado em Saúde Digital, Odontologia Pública e inovações no ensino superior.
-                </p>
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="http://lattes.cnpq.br/2224107126204328" target="_blank" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-secondary transition-all shadow-md hover:shadow-lg flex items-center gap-2">
-                        <i class="fas fa-file-alt"></i> Currículo Lattes
-                    </a>
-                    <a href="#contato" class="px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg font-medium hover:border-primary hover:text-primary transition-all flex items-center gap-2">
-                        <i class="fas fa-envelope"></i> Entrar em Contato
-                    </a>
+        /* CLASSE PARA TRAVAR ROLAGEM */
+        body.no-scroll {
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 159, 28, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0); }
+        }
+        
+        @keyframes dotPulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+
+        /* --- UTILITARIOS --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .btn { cursor: pointer; border: none; outline: none; transition: 0.2s; font-weight: 700; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-primary { background-color: var(--primary); color: #000; padding: 12px 25px; }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+        .hidden { display: none !important; }
+        
+        /* --- HEADER PROFISSIONAL --- */
+        header {
+            background-color: var(--bg-header);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            z-index: 10;
+            border-bottom: var(--glass-border);
+            padding: 20px 0;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        .header-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        /* Logo Centralizado */
+        .logo-section { 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            gap: 12px;
+            text-align: center;
+        }
+        .logo { 
+            font-size: 32px; 
+            color: var(--primary); 
+            text-shadow: 0 2px 10px rgba(255, 159, 28, 0.3); 
+            line-height: 1; 
+            margin: 0;
+        }
+        
+        /* Status Badge */
+        .status-badge {
+            font-size: 10px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            border: 1px solid currentColor;
+            width: fit-content;
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.05); /* Ajustado para modo claro */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .status-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .status-open { color: var(--success); border-color: var(--success); background-color: rgba(0, 200, 81, 0.1); }
+        .status-open .status-dot { background-color: var(--success); animation: dotPulse 1.5s infinite; box-shadow: 0 0 6px var(--success); }
+        .status-closed { color: var(--danger); border-color: var(--danger); background-color: rgba(255, 68, 68, 0.1); }
+        .status-closed .status-dot { background-color: var(--danger); }
+        
+        /* Links Sociais */
+        .social-links-header { display: flex; gap: 10px; margin-top: 5px; }
+        .icon-btn { 
+            background: var(--bg-element); color: var(--text-main); border: 1px solid var(--border-color);
+            width: 36px; height: 36px; border-radius: 50%; cursor: pointer; 
+            display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none; font-size: 16px;
+        }
+        .icon-btn:hover { background: var(--primary); color: #000; border-color: var(--primary); transform: translateY(-2px); }
+
+        /* --- WRAPPER STICKY --- */
+        #sticky-wrapper {
+            position: sticky; top: 0; z-index: 900; background-color: var(--bg-body);
+            padding-top: 10px; border-bottom: 1px solid var(--border-color); transition: background-color 0.3s;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* --- BARRA DE BUSCA --- */
+        .search-container { margin-bottom: 10px; display: flex; gap: 10px; }
+        .search-box {
+            flex: 1; background-color: var(--bg-element); border: 1px solid transparent;
+            border-radius: 12px; padding: 10px 15px; color: var(--text-main); font-size: 14px;
+            display: flex; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .search-box:focus-within { border-color: var(--primary); background-color: var(--bg-card); box-shadow: 0 0 0 2px rgba(255, 159, 28, 0.1); }
+        .search-input { background: transparent; border: none; color: var(--text-main); width: 100%; font-size: 14px; outline: none; font-family: inherit; }
+        .search-icon { color: var(--text-muted); font-size: 14px; }
+
+        .search-helper {
+            margin-top: 5px; margin-bottom: 10px; background-color: var(--info-bg); color: var(--info-text);
+            padding: 8px 12px; border-radius: 8px; font-size: 12px; display: flex; align-items: center; gap: 8px;
+            border: 1px solid var(--info-text); animation: fadeIn 0.3s ease;
+        }
+
+        .ai-btn {
+            background: var(--ai-gradient); color: #fff; border: none; border-radius: 12px; width: 44px; height: 44px;
+            flex-shrink: 0; display: flex; align-items: center; justify-content: center; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4); transition: all 0.3s; font-size: 18px;
+        }
+        .ai-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6); }
+        .ai-btn:active { transform: scale(0.95); }
+
+        /* --- CATEGORIAS --- */
+        .category-nav { padding: 0 0 10px 0; overflow-x: visible; white-space: normal; }
+        .category-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 5px; list-style: none; }
+        .cat-btn {
+            background: var(--bg-element); border: 1px solid transparent; color: var(--text-muted);
+            padding: 8px 14px; border-radius: 12px; font-size: 12px; font-weight: 600;
+            transition: all 0.3s; white-space: nowrap; display: flex; align-items: center; gap: 6px;
+            flex-grow: 1; justify-content: center; min-width: auto;
+        }
+        @media (max-width: 360px) { .cat-btn { padding: 6px 10px; font-size: 11px; } }
+        .cat-btn:hover { color: var(--text-main); background: var(--bg-card); }
+        .cat-btn.active { background: var(--primary); color: #000; box-shadow: 0 2px 8px rgba(255, 159, 28, 0.3); transform: scale(1.02); }
+
+        /* --- GRID DE PRODUTOS --- */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 15px; margin-bottom: 30px; }
+        .menu-item {
+            background-color: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color);
+            overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative; animation: fadeInUp 0.5s ease-out forwards; opacity: 0;
+            box-shadow: var(--shadow); /* Adicionado sombra sutil para destacar no fundo claro */
+        }
+        .menu-item:nth-child(1) { animation-delay: 0.05s; }
+        .menu-item:nth-child(2) { animation-delay: 0.1s; }
+        .menu-item:nth-child(3) { animation-delay: 0.15s; }
+        .menu-item:nth-child(n+4) { animation-delay: 0.2s; }
+        .menu-item:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .menu-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--primary); opacity: 0.5; }
+        .item-content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+        .item-title { font-weight: 700; font-size: 16px; color: var(--text-main); line-height: 1.2; }
+        .item-price { color: var(--primary); font-weight: 700; font-size: 16px; white-space: nowrap; margin-left: 8px; }
+        .item-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; flex-grow: 1; line-height: 1.4; }
+        .category-separator { margin-top: 25px; margin-bottom: 10px; font-size: 22px; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .category-separator::after { content: ''; flex-grow: 1; height: 1px; background: var(--border-color); }
+        .btn-container { margin-top: auto; height: 36px; }
+        .add-btn {
+            width: 100%; height: 100%; background: var(--bg-element); color: var(--text-main); 
+            border-radius: 8px; font-weight: 600; border: none; display: flex; align-items: center; 
+            justify-content: center; gap: 6px; cursor: pointer; transition: 0.2s; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .add-btn:hover { background: var(--primary); color: #000; }
+        .qty-selector {
+            display: flex; align-items: center; justify-content: space-between;
+            background-color: var(--bg-element); border-radius: 8px;
+            width: 100%; height: 100%; padding: 0; color: var(--text-main);
+            border: 1px solid var(--primary);
+        }
+        .qty-selector button { width: 36px; height: 100%; background: transparent; color: var(--text-main); border: none; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .qty-selector button:active { transform: scale(0.9); background-color: rgba(0,0,0,0.05); }
+        .qty-selector button:hover { color: var(--primary); }
+        .qty-selector span { color: var(--primary); font-weight: 700; font-size: 15px; }
+
+        /* --- SUGESTÃO --- */
+        .suggestion-box { background: rgba(255, 159, 28, 0.1); border: 1px dashed var(--primary); border-radius: 12px; padding: 15px; margin-bottom: 20px; animation: fadeInUp 0.3s ease; }
+        .suggestion-title { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        
+        .suggestion-items { 
+            display: flex; 
+            gap: 10px; 
+            overflow-x: auto; 
+            padding-bottom: 5px; 
+            padding-top: 5px; 
+            scrollbar-width: thin; 
+            scrollbar-color: var(--primary) transparent; 
+        }
+        
+        .suggestion-card { 
+            background: var(--bg-element); 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            padding: 12px; 
+            min-width: 120px; 
+            display: flex; flex-direction: column; align-items: center; gap: 8px; 
+            text-align: center; transition: 0.2s; 
+        }
+        .suggestion-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .suggestion-name { font-size: 12px; font-weight: 600; color: var(--text-main); line-height: 1.2; }
+        .suggestion-price { font-size: 13px; color: var(--primary); font-weight: 700; }
+        
+        .suggestion-add-btn { 
+            background: var(--primary); 
+            color: #000; 
+            border: none; 
+            border-radius: 8px; 
+            padding: 8px 12px; 
+            font-size: 11px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            margin-top: auto; 
+            width: 100%; 
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+            box-shadow: 0 2px 5px rgba(255, 159, 28, 0.2);
+        }
+        
+        .suggestion-add-btn:hover { 
+            background: var(--primary-dark); 
+            transform: translateY(-1px); 
+            box-shadow: 0 4px 10px rgba(255, 159, 28, 0.4); 
+        }
+        
+        .suggestion-add-btn:active { transform: scale(0.95); }
+
+        /* --- CARRINHO FLUTUANTE --- */
+        .floating-cart {
+            position: fixed; bottom: 20px; right: 15px; left: 15px; background-color: var(--primary); color: #000;
+            padding: 14px 20px; border-radius: 50px; display: flex; justify-content: space-between; align-items: center;
+            font-weight: 700; font-size: 16px; box-shadow: 0 8px 20px rgba(255, 159, 28, 0.4);
+            cursor: pointer; z-index: 1000; transition: all 0.3s; animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .floating-cart > span:first-child { display: flex; align-items: center; gap: 8px; }
+        .floating-cart:active { transform: scale(0.95); }
+        .cart-count { background: #000; color: var(--primary); padding: 2px 8px; border-radius: 20px; font-size: 12px; margin-left: 0; }
+
+        /* --- MODAL --- */
+        .modal-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.5); /* Mais leve para o tema claro */
+            z-index: 2000; display: flex; justify-content: center; align-items: flex-end; 
+            opacity: 0; pointer-events: none; transition: 0.3s; 
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+        .modal-content { background: var(--bg-card); width: 100%; max-width: 600px; height: 90vh; border-radius: 20px 20px 0 0; padding: 20px; display: flex; flex-direction: column; transform: translateY(100%); transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; color: var(--text-main); box-shadow: 0 -10px 40px rgba(0,0,0,0.1); padding-bottom: 40vh; }
+        .modal-overlay.open .modal-content { transform: translateY(0); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+        .close-modal { background: var(--bg-element); border: none; color: var(--text-main); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-size: 18px; }
+        .close-modal:hover { background: var(--danger); color: white; }
+
+        /* --- CHECKOUT --- */
+        .cart-items { margin-bottom: 20px; }
+        .cart-item-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; background: var(--bg-element); padding: 12px; border-radius: 10px; border: 1px solid var(--border-color); }
+        .cart-item-info h4 { font-size: 15px; color: var(--text-main); margin-bottom: 2px; }
+        .cart-item-info span { font-size: 13px; color: var(--primary); font-weight: 700; }
+        
+        /* --- CONTROLES DE QUANTIDADE (CARRINHO) --- */
+        .qty-controls { 
+            display: flex; 
+            align-items: center; 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            padding: 3px;
+            background: var(--bg-body); 
+        }
+        
+        .qty-btn { 
+            width: 32px; height: 32px; 
+            border-radius: 6px; 
+            border: none; 
+            background: transparent; 
+            color: var(--text-main); 
+            cursor: pointer; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 12px; 
+            transition: all 0.2s ease;
+        }
+        
+        .qty-btn:hover {
+            background: var(--primary);
+            color: #000;
+            transform: scale(1.05);
+        }
+        
+        .qty-btn:active { transform: scale(0.9); }
+
+        /* --- INPUT DE QUANTIDADE (DIGITÁVEL) --- */
+        .qty-input {
+            width: 40px;
+            background: transparent;
+            border: none;
+            text-align: center;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 15px;
+            font-family: inherit;
+            -moz-appearance: textfield; 
+            padding: 0;
+            transition: border-color 0.2s;
+            border-bottom: 2px solid transparent; 
+        }
+        .qty-input::-webkit-outer-spin-button,
+        .qty-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .qty-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary); 
+            background: rgba(0, 0, 0, 0.05); /* Ajuste leve para fundo branco */
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* Estilo para o campo de observação do item */
+        .item-obs-input {
+            width: 100%;
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 10px;
+            color: var(--text-main);
+            font-size: 12px;
+            margin-top: 8px;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .item-obs-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            background: var(--bg-element);
+        }
+        .item-obs-input::placeholder {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; margin-bottom: 5px; font-size: 13px; font-weight: 600; color: var(--text-muted); }
+        .form-input, .form-select { width: 100%; padding: 12px; background: var(--input-bg); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 10px; font-family: inherit; font-size: 15px; transition: 0.3s; }
+        .form-input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.2); }
+        .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .radio-option { flex: 1; position: relative; min-width: 90px; }
+        .radio-option input { display: none; }
+        .radio-option label { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 12px; text-align: center; background: var(--bg-element); border: 2px solid transparent; border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.2s; color: var(--text-muted); }
+        .radio-option label i { font-size: 18px; }
+        .radio-option input:checked + label { background: rgba(255, 159, 28, 0.15); color: var(--primary); border-color: var(--primary); }
+        .geo-btn { background: #25D366; color: #fff; width: 100%; margin-top: 10px; border: none; padding: 12px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 14px; }
+        .geo-status { font-size: 11px; color: var(--text-muted); margin-top: 6px; text-align: center; }
+        
+        /* --- AVISOS DE TAXA --- */
+        .delivery-fee-notice { 
+            background-color: rgba(255, 159, 28, 0.15); 
+            border-left: 5px solid var(--primary); 
+            color: var(--text-main); 
+            padding: 15px; 
+            border-radius: 8px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+        }
+
+        .delivery-time-notice { background-color: rgba(37, 211, 102, 0.1); border-left: 3px solid var(--whatsapp); color: var(--text-main); padding: 10px; border-radius: 0 6px 6px 0; font-size: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .cart-total { font-size: 22px; color: var(--primary); text-align: right; margin: 20px 0; border-top: 1px dashed var(--border-color); padding-top: 15px; font-weight: 800; }
+        .btn-whatsapp { width: 100%; background: var(--whatsapp); color: #fff; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 600; border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3); transition: transform 0.2s; letter-spacing: 0.5px; }
+        .btn-whatsapp i { font-size: 1.25em; }
+        .btn-whatsapp:hover { transform: translateY(-2px); }
+        .btn-outline { width: 100%; background: transparent; border: 2px solid var(--primary); color: var(--text-main); padding: 14px; border-radius: 12px; font-weight: 700; margin-top: 15px; margin-bottom: 10px; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 15px; cursor: pointer; }
+        .btn-outline:hover { background: rgba(255, 159, 28, 0.1); border-color: var(--primary-dark); }
+        
+        /* --- FOOTER --- */
+        footer { background: var(--bg-header); border-top: 1px solid var(--border-color); padding: 30px 20px 100px; text-align: center; margin-top: 40px; }
+        .footer-content { display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 0 auto; }
+        .footer-title { font-size: 24px; color: var(--primary); margin-bottom: 10px; }
+        .footer-info { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .footer-icon { font-size: 24px; color: var(--text-main); transition: 0.3s; width: 45px; height: 45px; border-radius: 50%; background: var(--bg-element); display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .footer-icon:hover { background: var(--primary); color: #000; transform: translateY(-3px); }
+
+        /* --- CHAT IA --- */
+        #chef-bot-modal .modal-content { background: var(--bg-body); padding: 0; height: 85vh; }
+        #chef-bot-modal .modal-header { background: var(--bg-header); padding: 15px; margin-bottom: 0; border-bottom: 1px solid var(--border-color); }
+        .chat-container { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; background-image: radial-gradient(var(--border-color) 1px, transparent 1px); background-size: 20px 20px; }
+        .message { padding: 10px 14px; border-radius: 16px; max-width: 85%; font-size: 14px; line-height: 1.4; animation: fadeInUp 0.3s ease; }
+        .message.bot { background: var(--bg-element); color: var(--text-main); align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid var(--border-color); }
+        .message.user { background: var(--primary); color: #000; align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
+        .typing-indicator { font-size: 11px; color: var(--text-muted); font-style: italic; margin-bottom: 10px; padding-left: 20px; display: none; }
+        .quick-replies { display: flex; gap: 8px; padding: 10px 15px; overflow-x: auto; background: var(--bg-card); border-top: 1px solid var(--border-color); }
+        .reply-chip { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 6px 14px; border-radius: 18px; font-size: 12px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .reply-chip:hover { background: var(--primary); color: #000; }
+        .input-area { display: flex; gap: 10px; padding: 12px; background: var(--bg-card); border-top: 1px solid var(--border-color); }
+        .chat-input { flex: 1; border-radius: 25px !important; }
+        .chat-btn { background: var(--ai-gradient); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+        .chat-btn:active { transform: scale(0.9); }
+        .chat-add-btn { margin-top: 8px; background-color: var(--primary); border: none; color: #000; padding: 6px 12px; border-radius: 12px; cursor: pointer; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; transition: 0.2s; }
+        .chat-add-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <!-- Botão de Tema REMOVIDO -->
+
+            <!-- Logo Centralizado -->
+            <div class="logo-section">
+                <div class="logo brand-font">DOGÃO PREÁ</div>
+                <div id="status-container" class="status-badge status-closed">
+                    <span class="status-dot"></span> <span id="status-text">Fechado • Abre às 19h</span>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center md:justify-end relative">
-                <!-- Decorative blob background -->
-                <div class="absolute top-0 right-10 w-72 h-72 bg-cyan-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-                
-                <!-- Placeholder for Profile Image -->
-                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 border-4 border-white">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop" alt="Foto de Perfil" class="w-full h-full object-cover">
-                    <!-- Nota: Substitua a URL acima pela foto real do Francisco quando disponível -->
-                </div>
+
+            <!-- Ícones Sociais (Abaixo do Logo) -->
+            <div class="social-links-header">
+                <a href="https://instagram.com/dogaoprea" target="_blank" class="icon-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5588996768158" target="_blank" class="icon-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/L67xDvckXUS4xZ179" target="_blank" class="icon-btn" title="Localização"><i class="fas fa-map-marker-alt"></i></a>
             </div>
         </div>
     </header>
 
-    <!-- Sobre Section -->
-    <section id="sobre" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl font-bold text-dark mb-8 flex items-center gap-3">
-                <span class="w-10 h-1 bg-primary rounded-full"></span>
-                Sobre Mim
-            </h2>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <p class="text-gray-600 leading-loose mb-6">
-                    Atualmente sou discente do Curso de Odontologia da <strong>Universidade Federal do Ceará - Campus Sobral</strong>. Minha trajetória acadêmica é marcada por uma forte atuação em atividades de extensão e pesquisa.
-                </p>
-                <p class="text-gray-600 leading-loose">
-                    Participo ativamente como voluntário no projeto <em>"Banco de Dentes Humanos Decíduos e Permanentes"</em> e no Programa de Acolhimento e Incentivo à Permanência (PAIP) através do projeto <em>"Amigodonto"</em>, onde já atuei como bolsista com ênfase no desenvolvimento de produções bibliográficas e organização de eventos científicos.
-                </p>
+    <div id="sticky-wrapper">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="search-input" placeholder="Pesquisar lanche..." oninput="searchProducts(this.value)">
+                </div>
+                <button class="ai-btn" onclick="toggleChefBot()" title="Falar com Chef Dogão"><i class="fas fa-comment-dots"></i></button>
             </div>
-            
-            <!-- Key Competencies Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
-                    <i class="fas fa-tooth text-2xl text-primary mb-2"></i>
-                    <h3 class="font-medium text-sm">Odontologia</h3>
-                </div>
-                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
-                    <i class="fas fa-laptop-medical text-2xl text-primary mb-2"></i>
-                    <h3 class="font-medium text-sm">Saúde Digital</h3>
-                </div>
-                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
-                    <i class="fas fa-book-medical text-2xl text-primary mb-2"></i>
-                    <h3 class="font-medium text-sm">Pesquisa</h3>
-                </div>
-                <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
-                    <i class="fas fa-users text-2xl text-primary mb-2"></i>
-                    <h3 class="font-medium text-sm">Extensão</h3>
-                </div>
+            <div id="search-helper" class="search-helper hidden">
+                <i class="fas fa-info-circle"></i><span>Marcas e sabores serão combinados no WhatsApp após o pedido.</span>
             </div>
         </div>
-    </section>
+        <nav class="category-nav">
+            <ul class="category-list" id="category-list"></ul>
+        </nav>
+    </div>
 
-    <!-- Formação e Cursos -->
-    <section id="formacao" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-12">
-                
-                <!-- Coluna Esquerda: Educação Formal -->
-                <div class="md:w-1/3">
-                    <h2 class="text-2xl font-bold text-dark mb-8 border-l-4 border-primary pl-4">Formação Acadêmica</h2>
-                    <div class="space-y-8 relative pl-2">
-                        <!-- Linha vertical -->
-                        <div class="absolute left-2 top-2 bottom-2 w-0.5 bg-gray-200"></div>
-                        
-                        <!-- Item 1 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1.5 w-4 h-4 bg-primary rounded-full border-4 border-white"></div>
-                            <span class="text-sm text-primary font-semibold">2023 - Presente</span>
-                            <h3 class="text-lg font-bold text-gray-800 mt-1">Graduação em Odontologia</h3>
-                            <p class="text-gray-500 text-sm">Universidade Federal do Ceará (UFC)</p>
-                            <p class="text-gray-400 text-xs mt-1">Campus Sobral</p>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1.5 w-4 h-4 bg-gray-300 rounded-full border-4 border-white"></div>
-                            <span class="text-sm text-gray-500 font-semibold">2020 - 2022</span>
-                            <h3 class="text-lg font-bold text-gray-800 mt-1">Ensino Médio</h3>
-                            <p class="text-gray-500 text-sm">EEMTI Raimunda Silveira de Sousa Carneiro</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Coluna Direita: Cursos Complementares (Seleção) -->
-                <div class="md:w-2/3">
-                    <h2 class="text-2xl font-bold text-dark mb-8 border-l-4 border-primary pl-4">Cursos & Aperfeiçoamentos (2024-2025)</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        
-                        <!-- Card Curso -->
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="text-xs text-primary font-bold mb-1">2025 • UFC</div>
-                            <h4 class="font-semibold text-gray-800">Hands On | Meu Primeiro Implante: Digital Experience</h4>
-                        </div>
-                        
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="text-xs text-primary font-bold mb-1">2025 • UFC</div>
-                            <h4 class="font-semibold text-gray-800">Laserterapia</h4>
-                        </div>
-
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="text-xs text-primary font-bold mb-1">2025 • Fiocruz</div>
-                            <h4 class="font-semibold text-gray-800">Introdução à Saúde Digital</h4>
-                        </div>
-
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="text-xs text-primary font-bold mb-1">2024 • UFC</div>
-                            <h4 class="font-semibold text-gray-800">Hands-on | Retalhos e Suturas em Periodontia</h4>
-                        </div>
-
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="text-xs text-primary font-bold mb-1">2024 • UFC</div>
-                            <h4 class="font-semibold text-gray-800">Desvendando a Harmonização Orofacial</h4>
-                        </div>
-
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-                            <div class="text-xs text-primary font-bold mb-1">2024 • ENAP</div>
-                            <h4 class="font-semibold text-gray-800">Comunicação Assertiva e Oratória</h4>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <div id="menu-container"></div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="brand-font footer-title">DOGÃO PREÁ</div>
+            <div class="footer-info">
+                <p>Estrada da Caiçara, S/N - Cavalo Bravo, Cruz - CE, 62595-000</p>
+                <p>Horário: 19h00 às 00h00 (Todos os dias)</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Projetos de Extensão -->
-    <section id="projetos" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-dark mb-12">Atuação em Projetos de Extensão</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Projeto 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border-t-4 border-blue-500">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">Banco de Dentes Humanos</h3>
-                        <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">Em Andamento</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-                        Atuação como voluntário no processamento e organização do banco de dentes decíduos e permanentes da UFC Sobral, essencial para o ensino prático.
-                    </p>
-                    <div class="text-sm text-gray-500">
-                        <i class="fas fa-clock mr-2"></i> Carga horária semanal: 2h
-                    </div>
-                </div>
-
-                <!-- Projeto 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border-t-4 border-teal-500">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">Projeto Amigodonto</h3>
-                        <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">Em Andamento</span>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-                        Programa de Acolhimento e Incentivo à Permanência. Desenvolvimento de cursos, workshops e produções bibliográficas visando reduzir a evasão e acolher novos alunos.
-                    </p>
-                    <div class="text-sm text-gray-500">
-                        <i class="fas fa-star mr-2"></i> Ex-bolsista de Iniciação Acadêmica
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Produção Bibliográfica -->
-    <section id="publicacoes" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-dark mb-4">Produção Bibliográfica</h2>
-            <p class="text-gray-500 mb-12">Destaques da produção técnica e acadêmica recente.</p>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- Categoria: Livros -->
-                <div class="col-span-1 md:col-span-3 lg:col-span-1">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                        <i class="fas fa-book text-primary"></i> Livros & Manuais
-                    </h3>
-                    <div class="space-y-4">
-                        <article class="p-4 bg-gray-50 rounded-lg border border-gray-100">
-                            <h4 class="font-bold text-gray-800 text-sm">O SUS DIANTE DA ERA DIGITAL</h4>
-                            <p class="text-xs text-gray-500 mt-1">Um olhar sobre a odontologia pública no Brasil.</p>
-                            <div class="mt-2 text-xs text-gray-400">Ed. BO Editora, 2025.</div>
-                        </article>
-                        
-                        <article class="p-4 bg-gray-50 rounded-lg border border-gray-100">
-                            <h4 class="font-bold text-gray-800 text-sm">MANUAL DE BIOSSEGURANÇA EM ODONTOLOGIA</h4>
-                            <p class="text-xs text-gray-500 mt-1">Co-autoria.</p>
-                            <div class="mt-2 text-xs text-gray-400">2ª Edição, 2024.</div>
-                        </article>
-
-                        <article class="p-4 bg-gray-50 rounded-lg border border-gray-100">
-                            <h4 class="font-bold text-gray-800 text-sm">GUIA PARA ALUNOS INGRESSANTES</h4>
-                            <p class="text-xs text-gray-500 mt-1">UFC Sobral.</p>
-                            <div class="mt-2 text-xs text-gray-400">1ª Edição, 2024.</div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Categoria: Capítulos de Livros -->
-                <div class="col-span-1 md:col-span-3 lg:col-span-2">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                        <i class="fas fa-file-medical text-primary"></i> Capítulos & Artigos Selecionados
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
-                            <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded uppercase">Artigo</span>
-                            <h4 class="font-bold text-gray-800 mt-2">The SUS in the Digital Era</h4>
-                            <p class="text-sm text-gray-600 mt-1">A look at public dentistry in Brazil.</p>
-                            <p class="text-xs text-gray-400 mt-2 italic">Revista CPAQV, 2025.</p>
-                        </div>
-
-                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
-                            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded uppercase">Capítulo</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Introdução à Saúde Digital</h4>
-                            <p class="text-sm text-gray-600 mt-1">Parte da obra: O SUS Diante da Era Digital.</p>
-                        </div>
-
-                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
-                            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded uppercase">Capítulo</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Teleodontologia no Brasil</h4>
-                            <p class="text-sm text-gray-600 mt-1">Análise das inovações digitais na odontologia pública.</p>
-                        </div>
-                        
-                        <div class="p-5 border rounded-xl hover:border-primary/50 transition-colors">
-                            <span class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded uppercase">Resumo</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Fisiopatologia da Doença Periodontal Gestacional</h4>
-                            <p class="text-sm text-gray-600 mt-1">Apresentado na XIV Jornada Odontológica de Sobral.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Prêmios -->
-    <section class="py-16 bg-primary text-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-8 text-center">Reconhecimentos & Prêmios</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Prêmio 1 -->
-                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
-                    <div class="text-3xl mb-3">🥇</div>
-                    <div class="font-bold text-lg mb-2">1º Lugar</div>
-                    <p class="text-sm text-cyan-50">Contribuição do Banco de Dentes no Ensino-Aprendizagem</p>
-                    <p class="text-xs text-cyan-200 mt-2">Faculdade Luciano Feijão, 2025</p>
-                </div>
-
-                <!-- Prêmio 2 -->
-                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
-                    <div class="text-3xl mb-3">🎖️</div>
-                    <div class="font-bold text-lg mb-2">Menção Honrosa</div>
-                    <p class="text-sm text-cyan-50">Uso de Probióticos como Terapia Adjuvante</p>
-                    <p class="text-xs text-cyan-200 mt-2">UFC Sobral, 2025</p>
-                </div>
-
-                <!-- Prêmio 3 -->
-                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
-                    <div class="text-3xl mb-3">🥇</div>
-                    <div class="font-bold text-lg mb-2">1º Lugar</div>
-                    <p class="text-sm text-cyan-50">Fisiopatologia da Doença Periodontal Gestacional</p>
-                    <p class="text-xs text-cyan-200 mt-2">UFC Sobral, 2024</p>
-                </div>
-
-                <!-- Prêmio 4 -->
-                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
-                    <div class="text-3xl mb-3">🥈</div>
-                    <div class="font-bold text-lg mb-2">2º Lugar</div>
-                    <p class="text-sm text-cyan-50">Síndrome de Eagle e Impactos na Qualidade de Vida</p>
-                    <p class="text-xs text-cyan-200 mt-2">UFC Sobral, 2024</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Contato -->
-    <footer id="contato" class="bg-dark text-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-                <div class="mb-6 md:mb-0 text-center md:text-left">
-                    <h2 class="text-2xl font-bold mb-2">Vamos conectar?</h2>
-                    <p class="text-gray-400">Disponível para colaborações em pesquisa e projetos acadêmicos.</p>
-                </div>
-                <div class="flex gap-4">
-                    <a href="mailto:taylansantos@alu.ufc.br" class="w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://br.linkedin.com/in/taylansantos" target="_blank" class="w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="http://lattes.cnpq.br/2224107126204328" target="_blank" class="w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all" title="Lattes">
-                        <i class="fas fa-graduation-cap"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>&copy; 2025 Francisco Taylan Santos de Lima. Todos os direitos reservados.</p>
-                <div class="mt-4 md:mt-0 flex gap-6">
-                    <span>ID Lattes: 2224107126204328</span>
-                    <span>Brasil</span>
-                </div>
+            <div class="footer-links">
+                <a href="https://instagram.com/dogaoprea" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5588996768158" target="_blank" class="footer-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/L67xDvckXUS4xZ179" target="_blank" class="footer-icon"><i class="fas fa-map-marker-alt"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Script simples para animação do header ao scroll -->
+    <div id="floating-cart" class="floating-cart hidden" onclick="toggleCart()">
+        <span><i class="fas fa-shopping-bag"></i> Sacola <span id="cart-count" class="cart-count">0</span></span>
+        <span id="cart-total-float">R$ 0,00</span>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div class="modal-overlay" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="brand-font">Finalizar Pedido</h2>
+                <button class="close-modal" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="cart-items" class="cart-items"><p style="text-align: center; color: var(--text-muted); margin-top: 20px;">Sua sacola está vazia 😔</p></div>
+            <div id="drink-suggestions" class="suggestion-box hidden">
+                <div class="suggestion-title"><i class="fas fa-glass-water"></i> Vai uma bebida geladinha? 🥤</div>
+                <div class="suggestion-items" id="suggestion-list"></div>
+            </div>
+            <button id="btn-add-more" class="btn-outline" onclick="toggleCart()" style="display: none;"><i class="fas fa-plus"></i> Adicionar mais itens</button>
+            <div class="cart-total brand-font" id="modal-total">Subtotal: R$ 0,00</div>
+            
+            <div id="checkout-form" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label">Seu nome</label>
+                    <input type="text" id="customer-name" class="form-input" placeholder="Como podemos te chamar?">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tipo de pedido</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="orderType" id="type-delivery" value="Entrega" onchange="toggleOrderType('Entrega')">
+                            <label for="type-delivery"><i class="fas fa-motorcycle"></i> Entrega</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="orderType" id="type-pickup" value="Retirada" onchange="toggleOrderType('Retirada')">
+                            <label for="type-pickup"><i class="fas fa-box"></i> Retirada</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="orderType" id="type-eatin" value="Mesa" onchange="toggleOrderType('Mesa')">
+                            <label for="type-eatin"><i class="fas fa-utensils"></i> Mesa</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="pickup-time-section" class="form-group hidden">
+                     <label class="form-label">Horário de Retirada (Opcional)</label>
+                     <input type="text" id="pickup-time" class="form-input" placeholder="Ex: 20:30 ou Daqui a 20 min">
+                     <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Informe se prefere retirar em um horário específico.</div>
+                </div>
+
+                <div id="address-section" class="form-group hidden">
+                    <div class="delivery-fee-notice"><i class="fas fa-info-circle" style="font-size: 20px;"></i><span>A taxa de entrega será calculada no WhatsApp.</span></div>
+                    <div class="delivery-time-notice"><i class="fas fa-clock" style="font-size: 20px; color: var(--whatsapp);"></i><span><strong>Previsão: 30 a 60 min.</strong><br>Tentaremos entregar o quanto antes! 🚀</span></div>
+                    <label class="form-label">Endereço</label>
+                    <button type="button" class="geo-btn" onclick="getLocation()"><i class="fas fa-map-marker-alt"></i> Usar Localização Atual</button>
+                    <div id="geo-status" class="geo-status"></div>
+                    <textarea id="address-text" class="form-input" rows="2" placeholder="Rua, Número, Bairro, Referência..." style="margin-top: 10px;"></textarea>
+                    <input type="hidden" id="maps-link">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Pagamento</label>
+                    <div class="radio-group">
+                        <div class="radio-option"><input type="radio" name="paymentMethod" id="pay-pix" value="PIX" checked onchange="togglePaymentInfo('PIX')"><label for="pay-pix"><i class="fas fa-qrcode"></i> PIX</label></div>
+                        <div class="radio-option"><input type="radio" name="paymentMethod" id="pay-credit" value="Cartão de Crédito" onchange="togglePaymentInfo('Cartão de Crédito')"><label for="pay-credit"><i class="fas fa-credit-card"></i> Crédito</label></div>
+                        <div class="radio-option"><input type="radio" name="paymentMethod" id="pay-debit" value="Cartão de Débito" onchange="togglePaymentInfo('Cartão de Débito')"><label for="pay-debit"><i class="fas fa-credit-card"></i> Débito</label></div>
+                        <div class="radio-option"><input type="radio" name="paymentMethod" id="pay-cash" value="Dinheiro" onchange="togglePaymentInfo('Dinheiro')"><label for="pay-cash"><i class="fas fa-money-bill-wave"></i> Dinheiro</label></div>
+                    </div>
+                </div>
+                <div id="pix-section" class="form-group">
+                    <div class="delivery-fee-notice" style="background-color: rgba(37, 211, 102, 0.1); border-color: var(--whatsapp); color: var(--text-main);"><i class="fas fa-qrcode" style="font-size: 24px; color: var(--whatsapp);"></i><span style="font-size: 12px; line-height: 1.4;">A chave PIX será enviada no WhatsApp após conferência do valor. <br><strong>O envio/retirada depende do comprovante.</strong></span></div>
+                </div>
+                <div id="card-fee-section" class="form-group hidden">
+                    <div class="delivery-fee-notice" style="background-color: rgba(59, 130, 246, 0.1); border-color: #60a5fa; color: var(--text-main);"><i class="fas fa-credit-card" style="font-size: 24px; color: #60a5fa;"></i><span style="font-size: 12px; line-height: 1.4;">ℹ️ <strong>Tarifa de Cartão:</strong> Há uma pequena tarifa de processamento para pagamentos com cartão. O valor será acrescido ao total após o envio do pedido pelo WhatsApp.</span></div>
+                </div>
+                <div id="change-section" class="form-group hidden">
+                    <label class="form-label">Troco para quanto?</label>
+                    <input type="tel" id="change-amount" class="form-input" placeholder="Ex: 50" oninput="this.value = this.value.replace(/[^0-9.,]/g, '')">
+                </div>
+                <button class="btn btn-whatsapp" onclick="finalizeOrder()"><i class="fab fa-whatsapp"></i> Enviar Pedido no WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chef Bot IA -->
+    <div class="modal-overlay" id="chef-bot-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 40px; height: 40px; background: var(--ai-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px;">🤖</div>
+                    <div><h2 class="brand-font" style="margin: 0; font-size: 20px;">Chef Dogão</h2><span style="font-size: 12px; color: #25D366; display: flex; align-items: center; gap: 4px;"><i class="fas fa-circle" style="font-size: 8px;"></i> Online</span></div>
+                </div>
+                <button class="close-modal" onclick="toggleChefBot()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages"></div>
+                <div class="typing-indicator" id="typing-indicator">Chef Dogão está digitando...</div>
+                <div class="quick-replies" id="quick-replies"></div>
+                <div class="input-area">
+                    <input type="text" id="chat-input" class="form-input chat-input" placeholder="Digite aqui..." onkeypress="handleChatKey(event)">
+                    <button class="chat-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-md');
-                nav.classList.remove('py-4');
-                nav.classList.add('py-2');
-            } else {
-                nav.classList.remove('shadow-md');
-                nav.classList.remove('py-2');
-                nav.classList.add('py-4');
+        const menuData = [
+            { id: 1, name: "Queijo e Ovos", price: 10.00, category: "sanduiches", desc: "Pão, queijo e ovos." },
+            { id: 2, name: "Hambúrguer", price: 10.00, category: "sanduiches", desc: "Pão, carne de hambúrguer e salada." },
+            { id: 3, name: "Misto Quente", price: 10.00, category: "sanduiches", desc: "Pão, queijo e presunto." },
+            { id: 4, name: "X-Burguer", price: 12.00, category: "sanduiches", desc: "Pão, carne de hambúrguer e queijo." },
+            { id: 5, name: "Frango Simples", price: 12.00, category: "sanduiches", desc: "Pão, frango, queijo, salada e milho verde." },
+            { id: 6, name: "Calabresa Simples", price: 12.00, category: "sanduiches", desc: "Pão, calabresa, queijo e salada." },
+            { id: 7, name: "Americano", price: 12.00, category: "sanduiches", desc: "Pão, queijo, presunto, ovos e salada." },
+            { id: 8, name: "X-Salada", price: 12.00, category: "sanduiches", desc: "Pão, carne de hambúrguer, queijo e salada." },
+            { id: 9, name: "Baurú", price: 14.00, category: "sanduiches", desc: "Pão, carne, queijo, presunto e salada." },
+            { id: 10, name: "X-Egg", price: 14.00, category: "sanduiches", desc: "Pão, carne, queijo, ovos e salada." },
+            { id: 11, name: "X-Calabresa", price: 14.00, category: "sanduiches", desc: "Pão, carne, queijo, calabresa e salada." },
+            { id: 12, name: "X-Frango", price: 14.00, category: "sanduiches", desc: "Pão, carne, queijo, frango e salada." },
+            { id: 13, name: "X-Bacon", price: 14.00, category: "sanduiches", desc: "Pão, carne, queijo, bacon e salada." },
+            { id: 14, name: "X-Frango Bacon", price: 15.00, category: "sanduiches", desc: "Pão, carne, queijo, frango, bacon e salada." },
+            { id: 15, name: "X-Tudo", price: 18.00, category: "especiais", desc: "Pão, carne, queijo, frango, presunto, ovos, bacon e salada." },
+            { id: 16, name: "Sandubob", price: 16.00, category: "especiais", desc: "Pão árabe, 2 carnes, queijo, ovos e salada." },
+            { id: 17, name: "Dogão (Pão Árabe)", price: 18.00, category: "especiais", desc: "Pão árabe, carne caseira, queijo, frango, bacon, calabresa, salada." },
+            { id: 18, name: "Lanchão (Pão Árabe)", price: 18.00, category: "especiais", desc: "Pão árabe, carne, queijo, frango, ovos, bacon, salada." },
+            { id: 19, name: "Hot-Dog Simples", price: 12.00, category: "hotdogs", desc: "Pão, molho carne, salsicha, salada, batata, milho." },
+            { id: 20, name: "Hot-Scooby", price: 14.00, category: "hotdogs", desc: "Pão, molho carne, 2 salsichas, salada, batata, milho, queijo." },
+            { id: 21, name: "Pastel Misto (P)", price: 10.00, category: "pasteis", desc: "Tamanho Pequeno." },
+            { id: 22, name: "Pastel Misto (G)", price: 12.00, category: "pasteis", desc: "Tamanho Grande." },
+            { id: 23, name: "Pastel Queijo (P)", price: 10.00, category: "pasteis", desc: "Tamanho Pequeno." },
+            { id: 24, name: "Pastel Queijo (G)", price: 12.00, category: "pasteis", desc: "Tamanho Grande." },
+            { id: 25, name: "Pastel Carne (P)", price: 12.00, category: "pasteis", desc: "Tamanho Pequeno." },
+            { id: 26, name: "Pastel Carne (G)", price: 14.00, category: "pasteis", desc: "Tamanho Grande." },
+            { id: 27, name: "Pastel Frango/Queijo (P)", price: 12.00, category: "pasteis", desc: "Tamanho Pequeno." },
+            { id: 28, name: "Pastel Frango/Queijo (G)", price: 14.00, category: "pasteis", desc: "Tamanho Grande." },
+            { id: 29, name: "Batata Frita (P)", price: 15.00, category: "porcoes", desc: "Porção Pequena." },
+            { id: 30, name: "Batata Frita (G)", price: 20.00, category: "porcoes", desc: "Porção Grande." },
+            { id: 31, name: "Batata Recheada", price: 35.00, category: "porcoes", desc: "Batata frita, bacon e calabresa." },
+            { id: 32, name: "Sucos Naturais", price: 0.00, category: "bebidas", desc: "Valores a consultar." },
+            { id: 33, name: "Refri Lata", price: 6.00, category: "bebidas", desc: "350ml. Sabor a combinar.", keywords: ["coca", "cola", "fanta", "guarana", "guaraná", "pepsi", "sprite", "sukita", "kuat", "soda", "antarctica"] },
+            { id: 34, name: "Refri 1 L", price: 10.00, category: "bebidas", desc: "Sabor a combinar.", keywords: ["coca", "cola", "fanta", "guarana", "guaraná", "pepsi", "sprite", "sukita", "kuat", "soda", "antarctica"] },
+        ];
+
+        const categories = [
+            { id: 'especiais', label: 'Favoritos', icon: 'fas fa-star' },
+            { id: 'sanduiches', label: 'Sanduíches', icon: 'fas fa-burger' },
+            { id: 'hotdogs', label: 'Hot Dogs', icon: 'fas fa-hotdog' },
+            { id: 'pasteis', label: 'Pastéis', icon: 'fas fa-cheese' },
+            { id: 'porcoes', label: 'Batatas', icon: 'fas fa-utensils' },
+            { id: 'bebidas', label: 'Bebidas', icon: 'fas fa-glass-water' }
+        ];
+
+        let cart = [];
+
+        window.onload = () => {
+            // Lógica de tema removida - Modo claro é padrão
+            checkOpenStatus();
+            renderCategories();
+            renderMenu();
+            initChat(); 
+            
+            const checkoutForm = document.getElementById('checkout-form');
+            if (checkoutForm) {
+                checkoutForm.addEventListener('focusin', (e) => {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                        setTimeout(() => {
+                            e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 400); 
+                    }
+                });
             }
-        });
+
+            const chatInput = document.getElementById('chat-input');
+            if (chatInput) {
+                chatInput.addEventListener('focus', () => {
+                    setTimeout(() => {
+                        chatInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 400);
+                });
+            }
+
+            setInterval(checkOpenStatus, 60000);
+        };
+
+        function checkOpenStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const statusContainer = document.getElementById('status-container');
+            const statusText = document.getElementById('status-text');
+            
+            if (hour >= 19 && hour <= 23) {
+                statusContainer.className = 'status-badge status-open';
+                statusText.innerText = 'Aberto Agora';
+            } else {
+                statusContainer.className = 'status-badge status-closed';
+                statusText.innerText = 'Fechado • Abre às 19h';
+            }
+        }
+
+        function renderCategories() {
+            const list = document.getElementById('category-list');
+            list.innerHTML = `<li><button class="cat-btn active" onclick="filterMenu('all', this)"><i class="fas fa-border-all"></i> Todos</button></li>` + 
+                categories.map(c => `<li><button class="cat-btn" onclick="filterMenu('${c.id}', this)"><i class="${c.icon}"></i> ${c.label}</button></li>`).join('');
+        }
+
+        function getButtonHtml(id) {
+            const itemInCart = cart.find(i => i.id === id);
+            if (itemInCart) {
+                return `<div class="qty-selector">
+                    <button onclick="updateQty(${id}, -1); event.stopPropagation()"><i class="fas fa-minus"></i></button>
+                    <input type="number" class="qty-input" value="${itemInCart.qty}" onchange="setQty(${id}, this.value)" onclick="event.stopPropagation()">
+                    <button onclick="updateQty(${id}, 1); event.stopPropagation()"><i class="fas fa-plus"></i></button>
+                </div>`;
+            } else {
+                return `<button class="add-btn" onclick="addToCart(${id})">ADICIONAR <i class="fas fa-plus"></i></button>`;
+            }
+        }
+
+        function createItemCard(item) {
+             const priceDisplay = item.price > 0 ? `R$ ${item.price.toFixed(2).replace('.',',')}` : "Consultar";
+             return `<div class="menu-item"><div class="item-content"><div class="item-header"><span class="item-title">${item.name}</span><span class="item-price">${priceDisplay}</span></div><p class="item-desc">${item.desc}</p><div class="btn-container" id="btn-container-${item.id}">${getButtonHtml(item.id)}</div></div></div>`;
+        }
+
+        function renderMenu(filter = 'all') {
+            const container = document.getElementById('menu-container');
+            container.innerHTML = ''; 
+            if (filter === 'all') {
+                categories.forEach(cat => {
+                    const items = menuData.filter(i => i.category === cat.id);
+                    if (items.length > 0) {
+                        const title = document.createElement('h3');
+                        title.className = 'brand-font category-separator';
+                        title.innerText = cat.label;
+                        container.appendChild(title);
+                        const grid = document.createElement('div');
+                        grid.className = 'menu-grid';
+                        grid.innerHTML = items.map(item => createItemCard(item)).join('');
+                        container.appendChild(grid);
+                    }
+                });
+            } else {
+                const items = menuData.filter(i => i.category === filter);
+                const grid = document.createElement('div');
+                grid.className = 'menu-grid';
+                grid.innerHTML = items.map(item => createItemCard(item)).join('');
+                container.appendChild(grid);
+            }
+        }
+
+        function filterMenu(catId, btnElement) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            if (btnElement) btnElement.classList.add('active');
+            renderMenu(catId);
+        }
+
+        function searchProducts(query) {
+            const term = query.toLowerCase().trim();
+            const catButtons = document.querySelectorAll('.cat-btn');
+            const helper = document.getElementById('search-helper');
+            const sodaBrands = ["coca", "cola", "fanta", "guarana", "guaraná", "pepsi", "sprite", "sukita", "kuat", "soda", "antarctica", "refri"];
+            const isSodaSearch = sodaBrands.some(brand => term.includes(brand));
+            if(isSodaSearch) helper.classList.remove('hidden'); else helper.classList.add('hidden');
+            
+            if (term.length > 0) {
+                catButtons.forEach(btn => btn.classList.remove('active'));
+                const filtered = menuData.filter(item => {
+                    const nameMatch = item.name.toLowerCase().includes(term);
+                    const descMatch = item.desc.toLowerCase().includes(term);
+                    const keywordMatch = item.keywords ? item.keywords.some(k => k.includes(term)) : false;
+                    return nameMatch || descMatch || keywordMatch;
+                });
+                const container = document.getElementById('menu-container');
+                if(filtered.length === 0) container.innerHTML = `<div style="text-align: center; padding: 40px; color: var(--text-muted);"><i class="fas fa-search" style="font-size: 40px; margin-bottom: 10px;"></i><p>Nenhum produto encontrado.</p></div>`;
+                else container.innerHTML = `<div class="menu-grid" style="margin-top: 20px;">${filtered.map(item => createItemCard(item)).join('')}</div>`;
+            } else {
+                helper.classList.add('hidden');
+                filterMenu('all', document.querySelector('.cat-btn'));
+            }
+        }
+
+        function addToCart(id) {
+            const item = menuData.find(i => i.id === id);
+            const existing = cart.find(i => i.id === id);
+            if (existing) existing.qty++; else cart.push({ ...item, qty: 1 });
+            updateGridButton(id); updateCartUI();
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+
+        function setQty(id, value) {
+            let newQty = parseInt(value);
+            if (isNaN(newQty) || newQty < 0) newQty = 0; 
+            const itemIndex = cart.findIndex(i => i.id === id);
+            if (itemIndex > -1) {
+                if (newQty === 0) {
+                    cart.splice(itemIndex, 1);
+                } else {
+                    cart[itemIndex].qty = newQty;
+                }
+            }
+            updateGridButton(id);
+            updateCartUI();
+        }
+
+        function updateQty(id, change) {
+            const itemIndex = cart.findIndex(i => i.id === id);
+            if (itemIndex > -1) {
+                cart[itemIndex].qty += change;
+                if (cart[itemIndex].qty <= 0) cart.splice(itemIndex, 1);
+            }
+            updateGridButton(id); updateCartUI();
+        }
+
+        function updateItemObs(id, value) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.obs = value;
+            }
+        }
+
+        function updateGridButton(id) {
+            const container = document.getElementById(`btn-container-${id}`);
+            if (container) container.innerHTML = getButtonHtml(id);
+        }
+
+        function renderDrinkSuggestions() {
+            const container = document.getElementById('suggestion-list');
+            const drinks = menuData.filter(i => i.category === 'bebidas').slice(0, 4);
+            container.innerHTML = drinks.map(drink => {
+                 const priceDisplay = drink.price > 0 ? `R$ ${drink.price.toFixed(2).replace('.',',')}` : "Consultar";
+                 return `<div class="suggestion-card"><div class="suggestion-name">${drink.name}</div><div class="suggestion-price">${priceDisplay}</div><button class="suggestion-add-btn" onclick="addToCart(${drink.id})">ADICIONAR <i class="fas fa-plus"></i></button></div>`
+            }).join('');
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+            const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            
+            const floatBtn = document.getElementById('floating-cart');
+            document.getElementById('cart-count').innerText = totalQty;
+            document.getElementById('cart-total-float').innerText = `R$ ${totalPrice.toFixed(2).replace('.',',')}`;
+            
+            const checkoutForm = document.getElementById('checkout-form');
+            const btnAddMore = document.getElementById('btn-add-more');
+
+            if (totalQty > 0) {
+                floatBtn.classList.remove('hidden');
+                checkoutForm.style.display = 'block';
+                btnAddMore.style.display = 'flex';
+            } else {
+                floatBtn.classList.add('hidden');
+                checkoutForm.style.display = 'none';
+                btnAddMore.style.display = 'none';
+            }
+
+            const list = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                list.innerHTML = '<p style="text-align: center; color: var(--text-muted); margin-top: 20px;">Sua sacola está vazia 😔</p>';
+            } else {
+                list.innerHTML = cart.map(item => {
+                    const itemTotal = item.price > 0 ? `R$ ${(item.price * item.qty).toFixed(2).replace('.',',')}` : "A Consultar";
+                    const obsValue = item.obs ? item.obs : '';
+                    
+                    return `<div class="cart-item-row" style="flex-direction: column; align-items: stretch;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="cart-item-info"><h4>${item.name}</h4><span>${itemTotal}</span></div>
+                            <div class="qty-controls">
+                                <button class="qty-btn" onclick="updateQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
+                                <input type="number" class="qty-input" value="${item.qty}" onchange="setQty(${item.id}, this.value)">
+                                <button class="qty-btn" onclick="updateQty(${item.id}, 1)"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <input type="text" class="item-obs-input" placeholder="Alguma observação? Ex: Sem cebola..." value="${obsValue}" oninput="updateItemObs(${item.id}, this.value)" onclick="event.stopPropagation()">
+                    </div>`
+                }).join('');
+            }
+            document.getElementById('modal-total').innerText = `Subtotal: R$ ${totalPrice.toFixed(2).replace('.',',')}`;
+
+            const hasFood = cart.some(i => ['sanduiches', 'especiais', 'hotdogs', 'pasteis', 'porcoes'].includes(i.category));
+            const hasDrink = cart.some(i => i.category === 'bebidas');
+            const suggestionContainer = document.getElementById('drink-suggestions');
+
+            if (hasFood && !hasDrink) { suggestionContainer.classList.remove('hidden'); renderDrinkSuggestions(); } 
+            else { suggestionContainer.classList.add('hidden'); }
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('open');
+            if (modal.classList.contains('open')) {
+                document.body.classList.add('no-scroll');
+            } else {
+                document.body.classList.remove('no-scroll');
+            }
+        }
+
+        function toggleChefBot() {
+            const modal = document.getElementById('chef-bot-modal');
+            modal.classList.toggle('open');
+            if (modal.classList.contains('open')) { document.body.classList.add('no-scroll'); } 
+            else { document.body.classList.remove('no-scroll'); }
+        }
+
+        function toggleOrderType(type) {
+            const addressSection = document.getElementById('address-section');
+            const pickupSection = document.getElementById('pickup-time-section');
+            
+            addressSection.classList.add('hidden');
+            pickupSection.classList.add('hidden');
+
+            if (type === 'Entrega') {
+                addressSection.classList.remove('hidden');
+            } else if (type === 'Retirada') {
+                pickupSection.classList.remove('hidden');
+            }
+        }
+
+        function togglePaymentInfo(value) {
+            const changeSection = document.getElementById('change-section');
+            const pixSection = document.getElementById('pix-section');
+            const cardSection = document.getElementById('card-fee-section');
+            changeSection.classList.add('hidden');
+            pixSection.classList.add('hidden');
+            cardSection.classList.add('hidden');
+
+            if (value === 'Dinheiro') changeSection.classList.remove('hidden');
+            else if (value === 'PIX') pixSection.classList.remove('hidden');
+            else if (value === 'Cartão de Crédito' || value === 'Cartão de Débito') cardSection.classList.remove('hidden');
+        }
+
+        function getLocation() {
+            const status = document.getElementById('geo-status');
+            const mapsInput = document.getElementById('maps-link');
+            if (!navigator.geolocation) { status.innerText = "Geolocalização não suportada."; return; }
+            status.innerText = "Buscando...";
+            const options = { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 };
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    const link = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+                    mapsInput.value = link;
+                    status.innerHTML = `<span class="geo-success"><i class="fas fa-check-circle"></i> Localização salva!</span>`;
+                },
+                (error) => {
+                    status.innerText = "Erro no GPS. Digite o endereço abaixo.";
+                    document.getElementById('address-text').focus();
+                }, options
+            );
+        }
+
+        function finalizeOrder() {
+            const name = document.getElementById('customer-name').value;
+            const typeRadio = document.querySelector('input[name="orderType"]:checked');
+            const paymentElement = document.querySelector('input[name="paymentMethod"]:checked');
+            
+            if (!name) return alert("Por favor, digite seu nome.");
+            if (!typeRadio) return alert("Escolha o tipo de pedido.");
+            if (!paymentElement) return alert("Escolha a forma de pagamento.");
+            
+            // GERA O ID ÚNICO COM BASE NO HORÁRIO
+            const now = new Date();
+            const orderId = String(now.getDate()).padStart(2, '0') + 
+                           String(now.getMonth() + 1).padStart(2, '0') + 
+                           String(now.getHours()).padStart(2, '0') + 
+                           String(now.getMinutes()).padStart(2, '0') +
+                           String(now.getSeconds()).padStart(2, '0');
+
+            const payment = paymentElement.value;
+            const changeAmount = document.getElementById('change-amount').value;
+            
+            const type = typeRadio.value;
+            let addressMsg = "";
+            let pickupMsg = "";
+
+            if (type === 'Entrega') {
+                const mapsLink = document.getElementById('maps-link').value;
+                const addressText = document.getElementById('address-text').value;
+                if (!mapsLink && !addressText) return alert("Para entrega, precisamos do endereço.");
+                if (mapsLink) addressMsg += `\n📍 *GPS:* ${mapsLink}`;
+                if (addressText) addressMsg += `\n🏠 *Endereço:* ${addressText}`;
+            } else if (type === 'Retirada') {
+                const pickupTime = document.getElementById('pickup-time').value;
+                if (pickupTime && pickupTime.trim() !== "") {
+                    pickupMsg = `\n⏰ *Horário de Retirada:* ${pickupTime}`;
+                }
+            }
+
+            let msg = `*NOVO PEDIDO - DOGÃO PREÁ*\n`;
+            msg += `🔢 *Pedido Nº:* ${orderId}\n`; // ADICIONADO AQUI
+            msg += `----------------------------\n`;
+            msg += `👤 *Cliente:* ${name}\n`;
+            msg += `📦 *Tipo:* ${type}${pickupMsg}\n`; 
+            msg += `💰 *Pagamento:* ${payment}\n`;
+
+            if (payment === 'Dinheiro' && changeAmount) {
+                msg += `💵 *Troco para:* R$ ${changeAmount}\n`;
+            }
+
+            msg += `\n*ITENS:*\n`;
+            
+            let hasConsultItem = false;
+            cart.forEach(item => {
+                const priceTxt = item.price > 0 ? `(R$ ${(item.price * item.qty).toFixed(2)})` : "(Consultar)";
+                msg += `${item.qty}x ${item.name} ${priceTxt}\n`;
+                
+                if (item.obs && item.obs.trim() !== "") {
+                    msg += `   📝 _Obs: ${item.obs.trim()}_\n`;
+                }
+                
+                if(item.price === 0) hasConsultItem = true;
+            });
+            
+            const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+            msg += `\n*TOTAL: R$ ${total.toFixed(2).replace('.',',')}*`;
+            
+            if(hasConsultItem) msg += `\n⚠️ _Contém itens a consultar valor._`;
+            
+            if (addressMsg) msg += `\n\n*ENTREGA:*${addressMsg}\n⚠️ _Taxa a calcular._`;
+            
+            const phone = "5588996768158";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        const quickReplies = [
+            { text: "🦁 Muita Fome!", msg: "fome" },
+            { text: "💸 Algo Barato", msg: "barato" },
+            { text: "🥓 Bacon é Vida", msg: "bacon" },
+            { text: "🛵 Entrega", msg: "entrega" },
+            { text: "💳 Pagamento", msg: "pagamento" }
+        ];
+
+        function initChat() {
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = `<div class="message bot">Olá! 👋 Eu sou o Chef Dogão. Não sabe o que pedir? Escolha uma opção abaixo ou diga o que gosta! 🍔</div>`;
+            renderQuickReplies();
+        }
+
+        function renderQuickReplies() {
+            const container = document.getElementById('quick-replies');
+            container.innerHTML = quickReplies.map(r => `<button class="reply-chip" onclick="sendQuickReply('${r.msg}')">${r.text}</button>`).join('');
+        }
+
+        function sendQuickReply(msg) {
+            document.getElementById('chat-input').value = msg;
+            sendMessage();
+        }
+
+        function handleChatKey(e) { if(e.key === 'Enter') sendMessage(); }
+
+        function formatMessage(text) {
+            return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim().toLowerCase();
+            const messagesContainer = document.getElementById('chat-messages');
+
+            if (!msg) return;
+
+            messagesContainer.innerHTML += `<div class="message user">${input.value}</div>`;
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            document.getElementById('typing-indicator').style.display = 'block';
+
+            setTimeout(() => {
+                let responseText = "";
+                let suggestedItemId = null;
+
+                if (msg.includes('oi') || msg.includes('ola')) {
+                    responseText = "E aí! Tudo bem? 👋 O que vai ser hoje? Um X-Tudo caprichado?";
+                } else if (msg.includes('fome') || msg.includes('grande') || msg.includes('gigante')) {
+                    const bigItems = menuData.filter(i => i.name.includes('X-Tudo') || i.name.includes('Dogão') || i.name.includes('Lanchão'));
+                    const item = bigItems[Math.floor(Math.random() * bigItems.length)];
+                    responseText = `Se a fome é de leão 🦁, vai de **${item.name}**! É gigante e custa R$ ${item.price.toFixed(2).replace('.',',')}.`;
+                    suggestedItemId = item.id;
+                } else if (msg.includes('sem bacon') || msg.includes('tirar bacon') || msg.includes('não gosto de bacon')) {
+                    responseText = "Entendido! Nada de bacon então. 🚫🥓 Que tal experimentar nosso **X-Salada** ou um **Frango Simples**? São deliciosos e mais leves!";
+                } else if (msg.includes('bacon')) {
+                    const baconItems = menuData.filter(i => i.name.toLowerCase().includes('bacon'));
+                    const item = baconItems[Math.floor(Math.random() * baconItems.length)];
+                    responseText = `🥓 Bacon crocante? Temos! O **${item.name}** é perfeito pra você.`;
+                    suggestedItemId = item.id;
+                } else if (msg.includes('frango')) {
+                    responseText = `🍗 Franguinho top! Recomendo o **X-Frango Bacon** ou o nosso **Pastel de Frango**.`;
+                } else if (msg.includes('barato') || msg.includes('10')) {
+                    responseText = `🤑 Quer economizar? O **Queijo e Ovos** ou o **Misto Quente** saem por apenas R$ 10,00!`;
+                } else if (msg.includes('beber') || msg.includes('sede') || msg.includes('refri')) {
+                    responseText = "🥤 Para refrescar, temos Sucos Naturais e Refrigerantes de todos os tamanhos!";
+                } else if (msg.includes('pastel')) {
+                    responseText = "🥟 Nossos pastéis são fritos na hora! Misto, Queijo, Carne ou Frango. Qual o tamanho da sua vontade?";
+                } else if (msg.includes('cardápio') || msg.includes('menu')) {
+                    responseText = "📜 O cardápio está logo atrás de mim! É só fechar aqui e rolar a tela para ver tudo.";
+                } else if (msg.includes('entrega') || msg.includes('entregar') || msg.includes('taxa') || msg.includes('tempo') || msg.includes('demora')) {
+                    responseText = "As nossas entregas levam de **30 a 60 minutos** 🛵. A taxa de entrega é calculada no WhatsApp dependendo da sua localização.";
+                } else if (msg.includes('pagamento') || msg.includes('pagar') || msg.includes('pix') || msg.includes('cartão') || msg.includes('dinheiro') || msg.includes('aceita')) {
+                    responseText = "Aceitamos **PIX, Cartão de Crédito/Débito e Dinheiro**. 💳💸 \n⚠️ Para pagamentos em cartão, há uma pequena tarifa da maquininha.";
+                } else if (msg.includes('horário') || msg.includes('horario') || msg.includes('abre') || msg.includes('fecha')) {
+                    responseText = "⏰ Estamos abertos **todos os dias**, das **19h00 às 00h00**. Se a fome bater nesse horário, é só chamar!";
+                } else if (msg.includes('onde') || msg.includes('fica') || msg.includes('endereço') || msg.includes('local')) {
+                    responseText = "📍 Estamos localizados na **Estrada da Caiçara, S/N - Cavalo Bravo, Cruz - CE**. Pode vir que é sucesso!<br><br> <a href='https://maps.app.goo.gl/L67xDvckXUS4xZ179' target='_blank' style='display: inline-flex; align-items: center; gap: 8px; background-color: #4285F4; color: #fff; padding: 10px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 5px; box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3); transition: transform 0.2s;' onmouseover='this.style.transform=\"scale(1.05)\"' onmouseout='this.style.transform=\"scale(1)\"'><i class='fas fa-map-marked-alt' style='font-size: 18px;'></i> Ver no Mapa</a>";
+                } else if (msg.includes('atendente') || msg.includes('humano') || msg.includes('falar com') || msg.includes('ajuda') || msg.includes('problema') || msg.includes('duvida')) {
+                    responseText = "Sem problemas! Se precisar de ajuda humana, clique no botão abaixo para chamar no WhatsApp: <br><br> <a href='https://wa.me/5588996768158' target='_blank' style='display: inline-flex; align-items: center; gap: 8px; background-color: #25D366; color: #fff; padding: 10px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 5px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); transition: transform 0.2s;' onmouseover='this.style.transform=\"scale(1.05)\"' onmouseout='this.style.transform=\"scale(1)\"'><i class='fab fa-whatsapp' style='font-size: 18px;'></i> Falar com Atendente</a>";
+                } else {
+                    const randomItem = menuData[Math.floor(Math.random() * menuData.length)];
+                    responseText = `Hummm... que tal experimentar um **${randomItem.name}**? É um dos meus favoritos! 😋`;
+                    suggestedItemId = randomItem.id;
+                }
+
+                let htmlContent = formatMessage(responseText);
+                if (suggestedItemId) {
+                    htmlContent += `<div style="margin-top: 10px;"><button class="chat-add-btn" onclick="addToCart(${suggestedItemId}); this.innerHTML='Adicionado! ✅'; setTimeout(()=>this.innerHTML='Adicionar ao Carrinho 🛒', 2000);">Adicionar ao Carrinho 🛒</button></div>`;
+                }
+
+                messagesContainer.innerHTML += `<div class="message bot">${htmlContent}</div>`;
+                document.getElementById('typing-indicator').style.display = 'none';
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 800);
+        }
     </script>
 </body>
 </html>
